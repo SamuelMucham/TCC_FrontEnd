@@ -78,19 +78,19 @@ export default function RootLayout({
               <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
                 <li>
                   <Link
-                    href="/baterias-inchadas"
+                    href="/TVS"
                     className="hover:text-red-500 transition"
                   >
-                    bateriasInchadas
+                    TVs
                   </Link>
                 </li>
 
                 <li>
                   <Link
-                    href="/cameras-quebradas"
+                    href="/NOTEBOOKS"
                     className="hover:text-red-500 transition"
                   >
-                    camerasQuebradas
+                    NOTEBOOKS
                   </Link>
                 </li>
 
