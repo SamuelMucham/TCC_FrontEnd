@@ -1,6 +1,12 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 
+import { useRouter } from "next/navigation";
+
 export default function TVSPage() {
+  const router = useRouter();
+
   const produtos = [
     {
       nome: 'Smart TV TCL 32" HD QLED S5K',
@@ -24,7 +30,8 @@ export default function TVSPage() {
       nome: 'Smart TV AOC 32" Roku TV',
       categoria: "TV",
       preco: "R$ 934,27",
-      imagem: "https://m.media-amazon.com/images/I/618HST9rp6L._AC_SL1000_.jpg",
+      imagem:
+        "https://m.media-amazon.com/images/I/618HST9rp6L.AC_SL1000.jpg",
       descricao:
         "Roku TV integrada, Wi-Fi, compatível com Alexa e Google Assistente, design moderno sem bordas.",
     },
@@ -32,7 +39,8 @@ export default function TVSPage() {
       nome: 'Samsung Smart TV 50" Crystal UHD 4K',
       categoria: "TV",
       preco: "R$ 4.399,35",
-      imagem: "https://m.media-amazon.com/images/I/71iGUDQvOYL._AC_SL1500_.jpg",
+      imagem:
+        "https://m.media-amazon.com/images/I/71iGUDQvOYL.AC_SL1500.jpg",
       descricao:
         "Crystal UHD 4K, Xbox Cloud Gaming, Alexa integrada e qualidade de imagem impressionante.",
     },
@@ -41,11 +49,11 @@ export default function TVSPage() {
       categoria: "TV",
       preco: "R$ 2.164,00",
       imagem:
-        "https://m.media-amazon.com/images/I/81AtIfydXvL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "https://m.media-amazon.com/images/I/81AtIfydXvL.AC_SY300_SX300_QL70_ML2.jpg",
       descricao:
         "QLED 4K com Dolby Vision, Dolby Atmos, Google TV e design premium para máxima imersão.",
     },
-    {
+        {
       nome: 'LG Smart TV 55" UHD 4K',
       categoria: "TV",
       preco: "R$ 2.799,90",
@@ -58,7 +66,8 @@ export default function TVSPage() {
       nome: 'Philips Smart TV 43" Full HD',
       categoria: "TV",
       preco: "R$ 1.699,90",
-      imagem: "https://m.media-amazon.com/images/I/61ClMfyPd+L._AC_SL1000_.jpg",
+      imagem:
+        "https://m.media-amazon.com/images/I/61ClMfyPd+L.AC_SL1000.jpg",
       descricao:
         "Google TV integrada, Full HD, HDR, Wi-Fi e Bluetooth para acesso rápido aos seus aplicativos favoritos.",
     },
@@ -73,19 +82,36 @@ export default function TVSPage() {
     },
   ];
 
+  function adicionarCarrinho(produto: unknown) {
+    const carrinho = JSON.parse(
+      localStorage.getItem("carrinho") || "[]"
+    );
+
+    carrinho.push(produto);
+
+    localStorage.setItem(
+      "carrinho",
+      JSON.stringify(carrinho)
+    );
+
+    router.push("/carrinho");
+  }
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen bg-gray-100 py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-[#e30613] mb-4">TVs</h1>
+          <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
+            TVs
+          </h1>
 
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Confira nossa seleção de Smart TVs com as melhores tecnologias,
             resolução 4K, Google TV, Roku TV e muito mais.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {produtos.map((produto, index) => (
             <div
               key={index}
@@ -121,14 +147,18 @@ export default function TVSPage() {
                     À vista no PIX
                   </p>
 
-                  <button className="w-full bg-gradient-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105">
-                    Ver Produto
+                  <button
+                    onClick={() => adicionarCarrinho(produto)}
+                    className="w-full bg-gradient-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                  >
+                    Adicionar no carrinho
                   </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );
