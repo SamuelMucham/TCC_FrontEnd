@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -7,7 +8,7 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "tecflow - Assistência tecnica",
+  title: "Assistencia tecnica forja - Assistência tecnica",
   description: "a maior assistencia tecnica do Brasil",
 };
 
@@ -33,14 +34,14 @@ export default function RootLayout({
                 href="/"
                 className="text-3xl font-extrabold text-[#e30613] uppercase tracking-tighter"
               >
-                TECFLOW
+                Assistencia tecnica forja
               </a>
 
               <div className="flex-1 max-w-2xl w-full relative">
                 <input
                   type="text"
                   placeholder="O que você está procurando?"
-                  className="w-full pl-4 pr-12 py-2.5 border-2 border-gray rounded-l-md focus:outline-none focus:border-[#e30613] text-sm"
+                  className="w-full pl-4 pr-12 py-2.5 border-2 border-gray rounded-l-md focus:outline-none focus:border-[#e30613] text-black text-sm"
                 />
                 <button className="absolute right-0 top-0 h-full bg-[#e30613] text-white px-6 font-bold rounded-r-md hover:bg-[#b3000a] transition-colors">
                   Buscar
@@ -55,13 +56,7 @@ export default function RootLayout({
                   <span className="text-xl"></span>
                   <span className="text-xs">Entre ou Cadastre-se</span>
                 </a>
-                <a
-                  href="/meusPedidos"
-                  className="flex flex-col items-center hover:text-[#e30613] transition"
-                >
-                  <span className="text-xl"></span>
-                  <span className="text-xs">Meus Pedidos</span>
-                </a>
+                
                 <a
                   href="/carrinho"
                   className="flex flex-col items-center hover:text-[#e30613] transition"
@@ -96,10 +91,10 @@ export default function RootLayout({
 
                 <li>
                   <Link
-                    href="/outros"
+                  href="/COMPUTADORES"
                     className="hover:text-red-500 transition"
                   >
-                    outros
+                    COMPUTADORES
                   </Link>
                 </li>
 
@@ -114,7 +109,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 flex flex-col items-center justify-center">
             <p className="text-xs">
               <span className="text-gray-500">
-                <span className="font-bold">Tecflow</span> é uma plataforma de
+                <span className="font-bold">Assistencia tecnica forja</span> é uma plataforma de
                 vendas de equipamentos e ferramentas para celulares e
                 computadores.
               </span>

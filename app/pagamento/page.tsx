@@ -80,7 +80,7 @@ export default function PagamentoPage() {
                   />
 
                   <div className="flex-1">
-                    <p className="font-bold">{item.nome}</p>
+                    <p className="font-bold text-red-600">{item.nome}</p>
                     <p className="text-sm text-black ">
                       {item.categoria}
                     </p>

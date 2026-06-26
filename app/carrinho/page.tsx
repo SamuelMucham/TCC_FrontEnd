@@ -50,7 +50,7 @@ export default function CarrinhoPage() {
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-extrabold mb-10">Meu Carrinho</h1>
+        <h1 className="text-4xl font-extrabold mb-10 text-black">Meu Carrinho</h1>
 
         {carrinho.length === 0 ? (
           <div className="bg-white rounded-3xl shadow-lg p-12 text-center">
@@ -87,7 +87,7 @@ export default function CarrinhoPage() {
                       {produto.categoria}
                     </span>
 
-                    <h2 className="text-2xl font-bold mt-3">{produto.nome}</h2>
+                    <h2 className="text-2xl font-bold mt-3 text-red-600">{produto.nome}</h2>
 
                     <p className="text-gray-500 mt-3">{produto.descricao}</p>
 
@@ -108,7 +108,7 @@ export default function CarrinhoPage() {
 
             <div className="bg-white rounded-3xl shadow-xl mt-10 p-8">
               <div className="flex justify-between items-center">
-                <h2 className="text-3xl font-bold">Total</h2>
+                <h2 className="text-3xl font-bold text-black">Total</h2>
 
                 <span className="text-4xl font-extrabold text-red-600">
                   R$ {total.toFixed(2).replace(".", ",")}
