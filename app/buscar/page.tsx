@@ -15,7 +15,8 @@ export default function BuscarPage() {
     if (
       pesquisa === "tv" ||
       pesquisa === "tvs" ||
-      pesquisa.includes("televis")
+      pesquisa === "televisao" ||
+      pesquisa.includes("televisão")
     ) {
       router.push("/TVS");
       return;
@@ -43,7 +44,15 @@ export default function BuscarPage() {
       pesquisa === "celular" ||
       pesquisa === "celulares"
     ) {
-      router.push("/");
+      router.push("/#ofertas");
+      return;
+    }
+
+    if (
+      pesquisa === "perifericos" ||
+      pesquisa === "periféricos"
+    ) {
+      router.push("/perifericos");
       return;
     }
   }, [params, router]);

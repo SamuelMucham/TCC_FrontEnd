@@ -39,10 +39,8 @@ export default function RootLayout({
                 Assistencia tecnica forja
               </a>
 
-              {/* Busca */}
               <Busca />
 
-              {/* Links */}
               <div className="flex gap-6 text-sm text-gray-600">
                 <a
                   href="/entreOuCadastreSe"
@@ -67,7 +65,6 @@ export default function RootLayout({
             </div>
           </div>
           </div>
-          {/* Menu */}
           <nav className="bg-[#222] text-white">
             <div className="container mx-auto px-4 overflow-x-auto">
               <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
@@ -95,6 +92,14 @@ export default function RootLayout({
                     className="hover:text-red-500 transition"
                   >
                     COMPUTADORES
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                  href="/perifericos"
+                    className="hover:text-red-500 transition"
+                  >
+                    PERIFERICOS
                   </Link>
                 </li>
               </ul>

@@ -76,7 +76,7 @@ export default function TVSPage() {
       categoria: "TV",
       preco: "R$ 4.999,90",
       imagem:
-        "https://tvlar.vtexassets.com/arquivos/ids/19937241-800-auto?v=639090084887930000&width=800&height=auto&aspect=true",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_839737-MLA113356249335_062026-F.webp",
       descricao:
         "Tela gigante de 75 polegadas com tecnologia QLED, Dolby Vision, HDR10+ e Google TV para máximo entretenimento.",
     },
