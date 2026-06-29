@@ -22,13 +22,11 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <header>
-          {/* Barra superior */}
           <div className="bg-[#fff3cd] text-[#856404] text-center py-2 text-sm font-bold border-b border-[#ffeeba]">
             GANHE 5% DE DESCONTO NA SUA PRIMEIRA COMPRA! USE O CUPOM{" "}
             <span className="font-bold">1COMPRA</span>
           </div>
 
-          {/* Cabeçalho */}
   <div className="bg-white shadow-sm border-b border-gray-200">
   <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 ">
@@ -73,7 +71,7 @@ export default function RootLayout({
                     href="/TVS"
                     className="hover:text-red-500 transition"
                   >
-                    TVs
+                    TVS
                   </Link>
                 </li>
 
@@ -102,6 +100,7 @@ export default function RootLayout({
                     PERIFERICOS
                   </Link>
                 </li>
+                
               </ul>
             </div>
           </nav>

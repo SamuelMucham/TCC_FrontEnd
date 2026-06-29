@@ -12,6 +12,50 @@ export default function Busca() {
 
     if (!texto) return;
 
+    if (
+      texto === "tv" ||
+      texto === "tvs" ||
+      texto === "televisao" ||
+      texto.includes("televisão")
+    ) {
+      router.push("/TVS");
+      return;
+    }
+
+    if (
+      texto === "notebook" ||
+      texto === "notebooks"
+    ) {
+      router.push("/NOTEBOOKS");
+      return;
+    }
+
+    if (
+      texto === "computador" ||
+      texto === "computadores" ||
+      texto === "pc" ||
+      texto === "pcs"
+    ) {
+      router.push("/COMPUTADORES");
+      return;
+    }
+
+    if (
+      texto === "celular" ||
+      texto === "celulares"
+    ) {
+      router.push("/#ofertas");
+      return;
+    }
+
+    if (
+      texto === "perifericos" ||
+      texto === "periféricos"
+    ) {
+      router.push("/perifericos");
+      return;
+    }
+
     router.push(`/buscar?q=${encodeURIComponent(texto)}`);
   }
 

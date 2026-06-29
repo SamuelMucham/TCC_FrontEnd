@@ -101,6 +101,9 @@ export default function Home() {
                   ROG Phone 9 Pro
                 </h3>
                 <div className="mt-auto w-full">
+                  <p className="text-xs text-gray-500 line-through">
+                    R$ 5.599,00
+                  </p>
                   <p className="text-2xl font-bold text-[#e30613]">R$ 5.000</p>
                   <p className="text-xs text-gray-400 mb-3">à vista no Pix</p>
                   <button

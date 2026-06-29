@@ -1,61 +1,11 @@
-"use client";
+type Props = {
+  searchParams: Promise<{
+    q?: string;
+  }>;
+};
 
-import { useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-
-export default function BuscarPage() {
-  const params = useSearchParams();
-  const router = useRouter();
-
-  useEffect(() => {
-    const pesquisa = (params.get("q") || "")
-      .toLowerCase()
-      .trim();
-
-    if (
-      pesquisa === "tv" ||
-      pesquisa === "tvs" ||
-      pesquisa === "televisao" ||
-      pesquisa.includes("televisão")
-    ) {
-      router.push("/TVS");
-      return;
-    }
-
-    if (
-      pesquisa === "notebook" ||
-      pesquisa === "notebooks"
-    ) {
-      router.push("/NOTEBOOKS");
-      return;
-    }
-
-    if (
-      pesquisa === "computador" ||
-      pesquisa === "computadores" ||
-      pesquisa === "pc" ||
-      pesquisa === "pcs"
-    ) {
-      router.push("/COMPUTADORES");
-      return;
-    }
-
-    if (
-      pesquisa === "celular" ||
-      pesquisa === "celulares"
-    ) {
-      router.push("/#ofertas");
-      return;
-    }
-
-    if (
-      pesquisa === "perifericos" ||
-      pesquisa === "periféricos"
-    ) {
-      router.push("/perifericos");
-      return;
-    }
-  }, [params, router]);
+export default async function BuscarPage({searchParams}:Props) {
+   const { q: termo } = await searchParams;
 
   return (
     <div className="max-w-4xl mx-auto py-16 px-6">
@@ -65,7 +15,7 @@ export default function BuscarPage() {
 
       <p className="mt-5">
         Você pesquisou:
-        <strong> {params.get("q")}</strong>
+        <strong> {termo}</strong>
       </p>
 
       <p className="mt-2 text-gray-500">
