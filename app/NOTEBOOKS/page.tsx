@@ -80,6 +80,42 @@ export default function NotebooksPage() {
       descricao:
         "Notebook Gamer MSI Katana com Intel Core i7, RTX 4060, 16GB de RAM, SSD de 1TB e tela de 144Hz.",
     },
+    {
+      nome: "Avell STORM 590X RTX 5090 | Intel Ultra 9",
+      categoria: "GAMER",
+      preco: "R$ 51.082,22",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "ntel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 128GB [4x 32GB - 2x Dual Channel] Memória DDR5 SSD M.2 NVME 2TB - Geração 4 - [ 6.000 MB/s ] 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Pro",
+    },
+    {
+      nome: "Avell STORM 590X RTX 5090 | Intel Ultra 9",
+      categoria: "GAMER",
+      preco: "R$ 49.721,11",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "Intel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 128GB [4x 32GB - 2x Dual Channel] Memória DDR5 SSD M.2 NVME 1TB - Geração 4 - [ 7.400 MB/s ] 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Home Single Language",
+    },
+        {
+      nome: 'Avell STORM 590X RTX 5090 | Intel Ultra 9',
+      categoria: "GAMER",
+      preco: "R$ 32.221,11",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "Intel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 32GB [2x 16GB - Dual Channel] Memória DDR5 SSD M.2 NVME 512GB - Geração 4 - [ 3.500 MB/s ] Sem Armazenamento 2 Sem Armazenamento 3 Sem Armazenamento 4 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Home Single Language",
+    },
+    {
+      nome: "MSI Katana 15 RTX 4060",
+      categoria: "GAMER",
+      preco: "R$ 8.199,90",
+      imagem:
+        "https://i5.walmartimages.com/seo/MSI-Katana-15-6-Gaming-Laptop-144Hz-FHD-Intel-Core-i7-13620H-NVIDIA-GeForce-RTX-4060-8GB-16GB-DDR5-Memory-1TB-NVMe-SSD-Windows-11-Black-B13VFK-817US_19d1ab0a-edde-44d9-826c-b8e9798ae11b.2ccb79676bb85cefcb7bb917dcbef1cc.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+      descricao:
+        "Notebook Gamer MSI Katana com Intel Core i7, RTX 4060, 16GB de RAM, SSD de 1TB e tela de 144Hz.",
+    },
   ];
 
   function adicionarCarrinho(produto: unknown) {
