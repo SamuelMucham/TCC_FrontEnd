@@ -68,8 +68,17 @@ export default function RootLayout({
               <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
                 <li>
                   <Link
+                    href="/todos"
+                    className="hover:text-red-500 transition px-25"
+                  >
+                    TODOS
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
                     href="/TVS"
-                    className="hover:text-red-500 transition px-30"
+                    className="hover:text-red-500 transition px-25"
                   >
                     TVS
                   </Link>
@@ -78,7 +87,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/NOTEBOOKS"
-                    className="hover:text-red-500 transition px-30"
+                    className="hover:text-red-500 transition px-25"
                   >
                     NOTEBOOKS
                   </Link>
@@ -87,7 +96,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/COMPUTADORES"
-                    className="hover:text-red-500 transition px-30"
+                    className="hover:text-red-500 transition px-25"
                   >
                     COMPUTADORES
                   </Link>
@@ -95,7 +104,7 @@ export default function RootLayout({
                 <li>
                   <Link
                   href="/perifericos"
-                    className="hover:text-red-500 transition px-30"
+                    className="hover:text-red-500 transition px-25"
                   >
                     PERIFERICOS
                   </Link>

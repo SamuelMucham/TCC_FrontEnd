@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import router from "next/router";
+
 /* eslint-disable @next/next/no-img-element */
 
 export default function perifericosPage() {
-  const router = useRouter();
 
   const produtos = [
     {
