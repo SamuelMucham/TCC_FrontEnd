@@ -1,18 +1,81 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-img-element*/
 
 export default function Home() {
+  
   const router = useRouter();
 
-  function adicionarCarrinho(produto: {
-    nome: string;
-    categoria: string;
-    preco: string;
-    imagem: string;
-    descricao: string;
-  }) {
+  const produtos = [
+    {
+      nome: "REDMAGIC 11 pro",
+      categoria: "CELULARES",
+      preco: "R$ 5.299,00",
+      imagem:
+        "https://br.redmagic.gg/cdn/shop/files/device-top__2x_bdff09d4-ce56-4750-b553-c820756f9d14.png?v=1761828406&width=628",
+      descricao: "REDMAGIC 11 pro",
+    },
+    {
+      nome: "ROG Phone 9 Pro",
+      categoria: "CELULARES",
+      preco: "R$ 5.000",
+      imagem:
+        "https://dlcdnwebimgs.asus.com/files/media/59e044d5-16d0-4b79-ba2e-1d0d878f4dec/v1/features/images/large/1x/kv/phone_left.png",
+      descricao: "ROG Phone 9 Pro",
+    },
+    {
+      nome: "Samsung S24 Ultra",
+      categoria: "CELULARES",
+      preco: "R$ 9.974,05",
+      imagem:
+        "https://http2.mlstatic.com/D_NQ_NP_2X_699676-MLA99382879982_112025-F.webp",
+      descricao: "Samsung S24 Ultra",
+    },
+    {
+      nome: "POCO X8 Pro",
+      categoria: "CELULARES",
+      preco: "R$ 6.439,99",
+      imagem: "https://m.media-amazon.com/images/I/61U2cKwv20L._AC_SX679_.jpg",
+      descricao: "POCO X8 Pro",
+    },
+    {
+      nome: "iPhone 17",
+      categoria: "CELULARES",
+      preco: "R$ 899,00",
+      imagem:
+        "https://http2.mlstatic.com/D_NQ_NP_2X_717704-MLA107971005255_032026-F.webp",
+      descricao: "iPhone 17",
+    },
+    {
+      nome: "x200 ultra",
+      categoria: "CELULARES",
+      preco: "R$ 8.999",
+      imagem:
+        "https://www.rbaimportados.com/media/catalog/product/cache/3c2036041cbcde60e4487744e349f5b9/v/i/vivo-x200-ultra_rbaimportados.com_14__1.webp",
+      descricao:
+        "vivo X200 Ultra - 5G 6.78 AMOLED 2K+ Android 15 Snapdragon 8 Elite 256/512/1TB 200MP 8K IP68",
+    },
+    {
+      nome: "Samsung S26 Ultra",
+      categoria: "CELULARES",
+      preco: "R$ 10.349,10",
+      imagem:
+        "https://samsungbrshop.vtexassets.com/arquivos/ids/278468-600-auto?v=639076206131900000",
+      descricao:
+        "Celular Samsung Galaxy S26 Ultra 5G, 512GB, 12GB RAM, Câmera Quádrupla, Tela Grande de 6.9 Preto",
+    },
+    {
+      nome: "HUAWEI Mate XT ULTIMATE DESIGN",
+      categoria: "CELULARES",
+      preco: "R$ 32.999",
+      imagem:
+        "https://imgs.search.brave.com/3PGIm8BLECs6IMNDFw36A5v27eFTyBqAzHgYotCCg-A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbHBo/YWdhZGdldC5jb20u/YmQvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjUvMDgvSHVhd2Vp/LU1hdGUtWFQtVWx0/aW1hdGUtRGVzaWdu/LVByaWNlLWluLUJh/bmdsYWRlc2guanBn",
+      descricao: "Único modelo com três telas do mundo.",
+    },
+  ];
+
+  function adicionarCarrinho(produto: unknown) {
     const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
 
     carrinho.push(produto);
@@ -21,233 +84,99 @@ export default function Home() {
 
     router.push("/carrinho");
   }
+
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <section className="relative bg-gray-800 h-87.5 flex items-center justify-center text-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://via.placeholder.com/1920x600/333/fff?text=BANNER+PRINCIPAL+LOJA+DO+MECANICO')] bg-cover bg-center opacity-60"></div>
+  <div className="bg-gray-50 min-h-screen">
+    <section className="relative bg-gray-800 h-87.5 flex items-center justify-center text-center text-white overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://via.placeholder.com/1920x600/333/fff?text=BANNER+PRINCIPAL+LOJA+DO+MECANICO')] bg-cover bg-center opacity-60"></div>
 
-        <div className="relative z-10 px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-            A Maior assistencia tecnica do Brasil
+      <div className="relative z-10 px-4">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          A Maior assistência técnica do Brasil
+        </h1>
+
+        <p className="text-xl md:text-2xl mb-8 font-light">
+          Desde 2026.
+        </p>
+
+        <a
+          href="#ofertas"
+          className="inline-block bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl"
+        >
+          Ver Ofertas
+        </a>
+      </div>
+    </section>
+
+    <div className="container mx-auto px-4 py-10">
+      <div id="ofertas" className="mb-12">
+        <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-[#e30613] pl-4 text-center">
+          Ofertas de celulares
+        </h2>
+      </div>
+    </div>
+
+    <div className="#f5f5f5 py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
+            celulares
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-light">Desde 2026.</p>
-          <a
-            href="#ofertas"
-            className="inline-block bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl shadow-lg"
-          >
-            Ver Ofertas
-          </a>
+
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Confira nossa seleção de celulares para estudo, trabalho,
+          </p>
         </div>
-      </section>
 
-      <div className="container mx-auto px-4 py-10">
-        <div id="ofertas" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-[#e30613] pl-4">
-            Ofertas de celulares e ferramentas
-          </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {produtos.map((produto, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100"
+            >
+              <div className="relative bg-linear-to-b from-gray-50 to-white p-5">
+                <span className="absolute top-4 left-4 z-10 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {produto.categoria}
+                </span>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative drop-shadow-xl w-full h-96 overflow-hidden rounded-xl bg-[#333e1d]">
-              <div className="absolute flex flex-col items-center justify-start text-white z- opacity-90 rounded-xl inset-0.5 bg-[#141414] p-4 h-full w-full">
-                <div className="w-full h-40 relative overflow-hidden rounded-lg bg-white mb-3">
-                  <img
-                    className="object-cover w-full h-full"
-                    src="https://br.redmagic.gg/cdn/shop/files/images_view.png?v=1761828429&width=960"
-                    alt="REDMAGIC 11 pro"
-                  />
-                </div>
-                <span className="text-xs text-gray-400 mb-1">CELULARES</span>
-                <h3 className="font-semibold text-sm leading-tight mb-2 flex-1">
-                  REDMAGIC 11 pro
-                </h3>
-                <div className="mt-auto w-full">
-                  <p className="text-xs text-gray-500 line-through">
-                    R$ 7.599,00
+                <img
+                  src={produto.imagem}
+                  alt={produto.nome}
+                  className="w-full h-60 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+
+              <div className="p-5 flex flex-col h-70">
+                <h2 className="text-lg font-bold text-gray-800 line-clamp-2 mb-3">
+                  {produto.nome}
+                </h2>
+
+                <p className="text-gray-500 text-sm line-clamp-4 flex-1">
+                  {produto.descricao}
+                </p>
+
+                <div className="mt-5">
+                  <p className="text-3xl font-extrabold text-[#e30613]">
+                    {produto.preco}
                   </p>
-                  <p className="text-2xl font-bold text-[#e30613]">
-                    R$ 5.299,00
+
+                  <p className="text-xs text-gray-400 mt-1 mb-4">
+                    À vista no PIX
                   </p>
-                  <p className="text-xs text-gray-400 mb-3">à vista no Pix</p>
+
                   <button
-                    onClick={() =>
-                      adicionarCarrinho({
-                        nome: "REDMAGIC 11 pro",
-                        categoria: "CELULARES",
-                        preco: "R$ 5.299,00",
-                        imagem:
-                          "https://br.redmagic.gg/cdn/shop/files/images_view.png?v=1761828429&width=960",
-                        descricao: "REDMAGIC 11 pro",
-                      })
-                    }
-                    className="w-full bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-2 rounded transition"
+                    onClick={() => adicionarCarrinho(produto)}
+                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>
                 </div>
               </div>
             </div>
-
-            <div className="relative drop-shadow-xl w-full h-96 overflow-hidden rounded-xl bg-[#333e1d] will-change: transform; transition: 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
-              <div className="absolute flex flex-col items-center justify-start text-white z- opacity-90 rounded-xl inset-0.5 bg-[#141414] p-4 h-full w-full">
-                <div className="w-full h-40 relative overflow-hidden rounded-lg bg-white mb-3">
-                  <img
-                    className="object-cover w-full h-full"
-                    src="https://imgs.search.brave.com/yjQuLhg0ab_Nva4sDRjldDA-kEwDQiKJtawVMM0n2jg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0LzVW/WGZLWllwRDlhNkE5/SGFlcGt2U2UuanBn"
-                    alt="ROG Phone 9 Pro"
-                  />
-                </div>
-                <span className="text-xs text-gray-400 mb-1">CELULARES</span>
-                <h3 className="font-semibold text-sm leading-tight mb-2 flex-1">
-                  ROG Phone 9 Pro
-                </h3>
-                <div className="mt-auto w-full">
-                  <p className="text-xs text-gray-500 line-through">
-                    R$ 5.599,00
-                  </p>
-                  <p className="text-2xl font-bold text-[#e30613]">R$ 5.000</p>
-                  <p className="text-xs text-gray-400 mb-3">à vista no Pix</p>
-                  <button
-                    onClick={() =>
-                      adicionarCarrinho({
-                        nome: "ROG Phone 9 Pro",
-                        categoria: "CELULARES",
-                        preco: "R$ 5.000",
-                        imagem:
-                          "https://imgs.search.brave.com/yjQuLhg0ab_Nva4sDRjldDA-kEwDQiKJtawVMM0n2jg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0LzVW/WGZLWllwRDlhNkE5/SGFlcGt2U2UuanBn",
-                        descricao: "ROG Phone 9 Pro",
-                      })
-                    }
-                    className="w-full bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-2 rounded transition"
-                  >
-                    Adicionar no carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative drop-shadow-xl w-full h-96 overflow-hidden rounded-xl bg-[#333e1d]">
-              <div className="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
-              <div className="absolute flex flex-col items-center justify-start text-white z- opacity-90 rounded-xl inset-0.5 bg-[#141414] p-4 h-full w-full">
-                <div className="w-full h-40 relative overflow-hidden rounded-lg bg-white mb-3">
-                  <img
-                    className="object-cover w-full h-full"
-                    src="https://imgs.search.brave.com/t7qjer1e0H9dOuZlet2bEiRdwsgcM2qEHq53Rnz1luI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0LzlR/R2lKOEJLak1NUzZu/QktoZHJzdEQuanBn"
-                    alt="Sansung S24 ultra"
-                  />
-                </div>
-                <span className="text-xs text-gray-400 mb-1">CELULARES</span>
-                <h3 className="font-semibold text-sm leading-tight mb-2 flex-1">
-                  Sansung S24 ultra
-                </h3>
-                <div className="mt-auto w-full">
-                  <p className="text-xs text-gray-500 line-through">
-                    R$ 10.499,00
-                  </p>
-                  <p className="text-2xl font-bold text-[#e30613]">
-                    R$ 9.974,05
-                  </p>
-                  <p className="text-xs text-gray-400 mb-3">À vista no Pix</p>
-                  <button
-                    onClick={() =>
-                      adicionarCarrinho({
-                        nome: "Samsung S24 Ultra",
-                        categoria: "CELULARES",
-                        preco: "R$ 9.974,05",
-                        imagem:
-                          "https://imgs.search.brave.com/t7qjer1e0H9dOuZlet2bEiRdwsgcM2qEHq53Rnz1luI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0LzlR/R2lKOEJLak1NUzZu/QktoZHJzdEQuanBn",
-                        descricao: "Samsung S24 Ultra",
-                      })
-                    }
-                    className="w-full bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-2 rounded transition"
-                  >
-                    Adicionar no carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative drop-shadow-xl w-full h-96 overflow-hidden rounded-xl bg-[#333e1d]">
-              <div className="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
-              <div className="absolute flex flex-col items-center justify-start text-white z- opacity-90 rounded-xl inset-0.5 bg-[#141414] p-4 h-full w-full">
-                <div className="w-full h-40 relative overflow-hidden rounded-lg bg-white mb-3">
-                  <img
-                    className="object-cover w-full h-full"
-                    src="https://imgs.search.brave.com/lO1i0MFDp--JLZoD5KwAHQRAq3lcmn2yaDjHzEAvYh4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b2ZpY2luYWRhbmV0/LmNvbS5ici9tZWRp/YS9wb3N0LzY3OTc3/LzEyMDAvMS1wb2Nv/LmpwZw"
-                    alt="POCO X8 pro"
-                  />
-                </div>
-                <span className="text-xs text-gray-400 mb-1">CELULARES</span>
-                <h3 className="font-semibold text-sm leading-tight mb-2 flex-1">
-                  POCO X8 pro
-                </h3>
-                <div className="mt-auto w-full">
-                  <p className="text-xs text-gray-500 line-through">
-                    R$ 6.999,99
-                  </p>
-                  <p className="text-2xl font-bold text-[#e30613]">
-                    R$ 6.439,99
-                  </p>
-                  <p className="text-xs text-gray-400 mb-3">À vista no Pix</p>
-                  <button
-                    onClick={() =>
-                      adicionarCarrinho({
-                        nome: "POCO X8 Pro",
-                        categoria: "CELULARES",
-                        preco: "R$ 6.439,99",
-                        imagem:
-                          "https://imgs.search.brave.com/lO1i0MFDp--JLZoD5KwAHQRAq3lcmn2yaDjHzEAvYh4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b2ZpY2luYWRhbmV0/LmNvbS5ici9tZWRp/YS9wb3N0LzY3OTc3/LzEyMDAvMS1wb2Nv/LmpwZw",
-                        descricao: "POCO X8 Pro",
-                      })
-                    }
-                    className="w-full bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-2 rounded transition"
-                  >
-                    Adicionar no carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative drop-shadow-xl w-full h-96 overflow-hidden rounded-xl bg-[#333e1d]">
-              <div className="absolute w-56 h-48 bg-white blur-[50px] -left-1/2 -top-1/2"></div>
-              <div className="absolute flex flex-col items-center justify-start text-white z- opacity-90 rounded-xl inset-0.5 bg-[#141414] p-4 h-full w-full">
-                <div className="w-full h-40 relative overflow-hidden rounded-lg bg-white mb-3">
-                  <img
-                    className="object-cover w-full h-full"
-                    src="https://imgs.search.brave.com/mnQzut5pz_6bXvFJxNMHOIreNDz-MyZw3R7fE3_zjNc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbWF0/ZXVycGhvdG9ncmFw/aGVyLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvc2l0ZXMvNy8y/MDI1LzEwL2lQaG9u/ZTE3X0FteURhdmll/c18wNS5qcGc_dz0x/MDI0"
-                    alt="Iphone 17"
-                  />
-                </div>
-                <span className="text-xs text-gray-400 mb-1">CELULARES</span>
-                <h3 className="font-semibold text-sm leading-tight mb-2 flex-1">
-                  Iphone 17
-                </h3>
-                <div className="mt-auto w-full">
-                  <p className="text-xs text-gray-500 line-through">
-                    R$ 1.200,00
-                  </p>
-                  <p className="text-2xl font-bold text-[#e30613]">R$ 899,00</p>
-                  <p className="text-xs text-gray-400 mb-3">À vista no Pix</p>
-                  <button
-                    onClick={() =>
-                      adicionarCarrinho({
-                        nome: "iPhone 17",
-                        categoria: "CELULARES",
-                        preco: "R$ 899,00",
-                        imagem:
-                          "https://imgs.search.brave.com/mnQzut5pz_6bXvFJxNMHOIreNDz-MyZw3R7fE3_zjNc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbWF0/ZXVycGhvdG9ncmFw/aGVyLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvc2l0ZXMvNy8y/MDI1LzEwL2lQaG9u/ZTE3X0FteURhdmll/c18wNS5qcGc_dz0x/MDI0",
-                        descricao: "iPhone 17",
-                      })
-                    }
-                    className="w-full bg-[#e30613] hover:bg-[#b3000a] text-white font-bold py-2 rounded transition"
-                  >
-                    Adicionar no carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 }

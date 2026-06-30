@@ -69,7 +69,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/TVS"
-                    className="hover:text-red-500 transition"
+                    className="hover:text-red-500 transition px-30"
                   >
                     TVS
                   </Link>
@@ -78,7 +78,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/NOTEBOOKS"
-                    className="hover:text-red-500 transition"
+                    className="hover:text-red-500 transition px-30"
                   >
                     NOTEBOOKS
                   </Link>
@@ -87,7 +87,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/COMPUTADORES"
-                    className="hover:text-red-500 transition"
+                    className="hover:text-red-500 transition px-30"
                   >
                     COMPUTADORES
                   </Link>
@@ -95,7 +95,7 @@ export default function RootLayout({
                 <li>
                   <Link
                   href="/perifericos"
-                    className="hover:text-red-500 transition"
+                    className="hover:text-red-500 transition px-30"
                   >
                     PERIFERICOS
                   </Link>
