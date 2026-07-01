@@ -17,7 +17,7 @@ export default function pecasParaCelularesPage() {
   const produtos = [
     {
       nome: "Tela iPhone 11",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$79",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_790905-MLA99985696901_112025-F.webp",
@@ -26,7 +26,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Pantalla Amoled Para Samsung",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 959,21",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_967581-CBT112249641520_062026-F.webp",
@@ -35,7 +35,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Tela Display Moto G7",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 69,70",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_829108-MLA112458340199_052026-F.webp",
@@ -44,7 +44,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Tela para Infinix Hot 50i",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 78,47",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_628346-MLB105310020844_012026-F.webp",
@@ -53,7 +53,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Bateria Para Lg K9 / K7",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 68,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_952207-MLB74607595964_022024-F.webp",
@@ -62,7 +62,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Bateria Para A10 A105 M10 M105 A750",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 68,90",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_780807-MLB76989987118_062024-F.webp",
@@ -71,7 +71,7 @@ export default function pecasParaCelularesPage() {
     },
         {
       nome: 'Bateria para Moto G8 Play One Macro E7 Kg40',
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 66,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_611319-MLB74688526493_022024-F.webp",
@@ -80,7 +80,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Bateria Para Moto E22",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 79,88",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_832946-MLB78059620995_072024-F.webp",
@@ -89,7 +89,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Placa Conector Carga S24 Ultra",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 294,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_902415-MLB108323062232_032026-F.webp",
@@ -98,7 +98,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Placa Conector Carga A55",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 189,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_695566-MLB107801464256_032026-F.webp",
@@ -107,7 +107,7 @@ export default function pecasParaCelularesPage() {
     },
         {
       nome: 'Placa Conector Carga Moto G56',
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 135,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_844330-MLB104994731877_012026-F.webp",
@@ -116,7 +116,7 @@ export default function pecasParaCelularesPage() {
     },
     {
       nome: "Placa Conector Carga Mic Moto Edge 70",
-      categoria: "peças para celulares",
+      categoria: "peças para TV",
       preco: "R$ 189,00",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_976298-MLB110157799384_042026-F.webp",
@@ -159,11 +159,11 @@ export default function pecasParaCelularesPage() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
-            Peças para celulares
+            Peças para TV
           </h1>
 
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Confira nossa seleção de algumas peças para celulares.
+            Confira nossa seleção de algumas peças para TVS.
           </p>
         </div>
 
