@@ -2,8 +2,17 @@
 
 import router from "next/router";
 
+
 /* eslint-disable @next/next/no-img-element */
 
+interface Produto {
+  nome: string;
+  categoria: string;
+  preco: string;
+  imagem: string;
+  descricao: string;
+  quantidade?: number;
+}
 
 export default function todosPage() {
 
@@ -361,23 +370,75 @@ export default function todosPage() {
         "https://imgs.search.brave.com/3PGIm8BLECs6IMNDFw36A5v27eFTyBqAzHgYotCCg-A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hbHBo/YWdhZGdldC5jb20u/YmQvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjUvMDgvSHVhd2Vp/LU1hdGUtWFQtVWx0/aW1hdGUtRGVzaWdu/LVByaWNlLWluLUJh/bmdsYWRlc2guanBn",
       descricao: "Único modelo com três telas do mundo.",
     },
+    {
+      nome: "Avell STORM 590X RTX 5090 | Intel Ultra 9",
+      categoria: "GAMER",
+      preco: "R$ 51.082,22",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "ntel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 128GB [4x 32GB - 2x Dual Channel] Memória DDR5 SSD M.2 NVME 2TB - Geração 4 - [ 6.000 MB/s ] 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Pro",
+    },
+    {
+      nome: "Avell STORM 590X RTX 5090 | Intel Ultra 9",
+      categoria: "GAMER",
+      preco: "R$ 49.721,11",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "Intel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 128GB [4x 32GB - 2x Dual Channel] Memória DDR5 SSD M.2 NVME 1TB - Geração 4 - [ 7.400 MB/s ] 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Home Single Language",
+    },
+        {
+      nome: 'Avell STORM 590X RTX 5090 | Intel Ultra 9',
+      categoria: "GAMER",
+      preco: "R$ 32.221,11",
+      imagem:
+        "https://eshop-api.avell.com.br/storage/resize/contain/_x500/5/catalog/productMedia/67f435269a4447222/691634637466f897.webp",
+      descricao:
+        "Intel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 32GB [2x 16GB - Dual Channel] Memória DDR5 SSD M.2 NVME 512GB - Geração 4 - [ 3.500 MB/s ] Sem Armazenamento 2 Sem Armazenamento 3 Sem Armazenamento 4 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Home Single Language",
+    },
+    {
+      nome: "MSI SWORD 17",
+      categoria: "GAMER",
+      preco: "R$ 15.499,00",
+      imagem:
+        "https://images3.kabum.com.br/produtos/fotos/620563/notebook-gamer-msi-sword-17-hx-intel-ulttra-7-155h-16gb-ram-ssd-1tb-16-fhd-ips-qhd-240hz-rtx-4060-win-11h-preto-9s7-17t214-219_1730298524_gg.jpg",
+      descricao:
+        "Notebook Gamer MSI SWORD 17 HX Intel Core i7, 16GB RAM, SSD 1TB, 16 FHD, 240Hz, GeForce RTX 4060, Win 11H, Cinza - B14VFKG-242BR",
+    },
 ].sort(() => Math.random() - 0.5);
 
 
-  function adicionarCarrinho(produto: unknown) {
-    const carrinho = JSON.parse(
-      localStorage.getItem("carrinho") || "[]"
-    );
+  function adicionarCarrinho(produto: Produto) {
+  const carrinho: Produto[] = JSON.parse(
+    localStorage.getItem("carrinho") || "[]"
+  );
 
-    carrinho.push(produto);
+  const index = carrinho.findIndex(
+    (item) => item.nome === produto.nome
+  );
 
-    localStorage.setItem(
-      "carrinho",
-      JSON.stringify(carrinho)
-    );
-
-    router.push("/carrinho");
+  if (index !== -1) {
+    // Produto já existe no carrinho
+    if ((carrinho[index].quantidade ?? 1) < 5) {
+      carrinho[index].quantidade =
+        (carrinho[index].quantidade ?? 1) + 1;
+    } else {
+      alert("Você só pode adicionar até 5 unidades deste produto.");
+      return;
+    }
+  } else {
+    // Produto ainda não existe
+    carrinho.push({
+      ...produto,
+      quantidade: 1,
+    });
   }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  alert("Produto adicionado ao carrinho!");
+}
 
     return (
     <div className="min-h-screen bg-gray-100 py-12 px-6">

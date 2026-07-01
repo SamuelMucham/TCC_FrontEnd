@@ -4,6 +4,15 @@
 
 import { useRouter } from "next/navigation";
 
+interface Produto {
+  nome: string;
+  categoria: string;
+  preco: string;
+  imagem: string;
+  descricao: string;
+  quantidade?: number;
+}
+
 export default function NotebooksPage() {
   const router = useRouter();
 
@@ -108,30 +117,46 @@ export default function NotebooksPage() {
         "Intel® Core™ Ultra 9 275HX Nvidia GeForce® RTX 5090 (24GB GDDR7) 32GB [2x 16GB - Dual Channel] Memória DDR5 SSD M.2 NVME 512GB - Geração 4 - [ 3.500 MB/s ] Sem Armazenamento 2 Sem Armazenamento 3 Sem Armazenamento 4 18 QHD 2560x1600 - 240Hz / sRGB: 100% / Contraste: 1000:1 / Brilho 500 cd/m² Original Windows 11 Home Single Language",
     },
     {
-      nome: "MSI Katana 15 RTX 4060",
+      nome: "MSI SWORD 17",
       categoria: "GAMER",
-      preco: "R$ 8.199,90",
+      preco: "R$ 15.499,00",
       imagem:
-        "https://i5.walmartimages.com/seo/MSI-Katana-15-6-Gaming-Laptop-144Hz-FHD-Intel-Core-i7-13620H-NVIDIA-GeForce-RTX-4060-8GB-16GB-DDR5-Memory-1TB-NVMe-SSD-Windows-11-Black-B13VFK-817US_19d1ab0a-edde-44d9-826c-b8e9798ae11b.2ccb79676bb85cefcb7bb917dcbef1cc.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+        "https://images3.kabum.com.br/produtos/fotos/620563/notebook-gamer-msi-sword-17-hx-intel-ulttra-7-155h-16gb-ram-ssd-1tb-16-fhd-ips-qhd-240hz-rtx-4060-win-11h-preto-9s7-17t214-219_1730298524_gg.jpg",
       descricao:
-        "Notebook Gamer MSI Katana com Intel Core i7, RTX 4060, 16GB de RAM, SSD de 1TB e tela de 144Hz.",
+        "Notebook Gamer MSI SWORD 17 HX Intel Core i7, 16GB RAM, SSD 1TB, 16 FHD, 240Hz, GeForce RTX 4060, Win 11H, Cinza - B14VFKG-242BR",
     },
   ];
 
-  function adicionarCarrinho(produto: unknown) {
-    const carrinho = JSON.parse(
-      localStorage.getItem("carrinho") || "[]"
-    );
+  function adicionarCarrinho(produto: Produto) {
+  const carrinho: Produto[] = JSON.parse(
+    localStorage.getItem("carrinho") || "[]"
+  );
 
-    carrinho.push(produto);
+  const index = carrinho.findIndex(
+    (item) => item.nome === produto.nome
+  );
 
-    localStorage.setItem(
-      "carrinho",
-      JSON.stringify(carrinho)
-    );
-
-    router.push("/carrinho");
+  if (index !== -1) {
+    // Produto já existe no carrinho
+    if ((carrinho[index].quantidade ?? 1) < 5) {
+      carrinho[index].quantidade =
+        (carrinho[index].quantidade ?? 1) + 1;
+    } else {
+      alert("Você só pode adicionar até 5 unidades deste produto.");
+      return;
+    }
+  } else {
+    // Produto ainda não existe
+    carrinho.push({
+      ...produto,
+      quantidade: 1,
+    });
   }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  alert("Produto adicionado ao carrinho!");
+}
 
     return (
     <div className="min-h-screen bg-gray-100 py-12 px-6">

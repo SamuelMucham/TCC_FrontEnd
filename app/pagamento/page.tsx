@@ -9,6 +9,7 @@ interface Produto {
   preco: string;
   imagem: string;
   descricao: string;
+  quantidade: number;
 }
 
 export default function PagamentoPage() {

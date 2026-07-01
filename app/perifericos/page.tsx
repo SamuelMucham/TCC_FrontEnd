@@ -4,6 +4,15 @@ import router from "next/router";
 
 /* eslint-disable @next/next/no-img-element */
 
+interface Produto {
+  nome: string;
+  categoria: string;
+  preco: string;
+  imagem: string;
+  descricao: string;
+  quantidade?: number;
+}
+
 export default function perifericosPage() {
 
   const produtos = [
@@ -81,15 +90,36 @@ export default function perifericosPage() {
     },
   ];
 
-  function adicionarCarrinho(produto: unknown) {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  function adicionarCarrinho(produto: Produto) {
+  const carrinho: Produto[] = JSON.parse(
+    localStorage.getItem("carrinho") || "[]"
+  );
 
-    carrinho.push(produto);
+  const index = carrinho.findIndex(
+    (item) => item.nome === produto.nome
+  );
 
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    router.push("/carrinho");
+  if (index !== -1) {
+    // Produto já existe no carrinho
+    if ((carrinho[index].quantidade ?? 1) < 5) {
+      carrinho[index].quantidade =
+        (carrinho[index].quantidade ?? 1) + 1;
+    } else {
+      alert("Você só pode adicionar até 5 unidades deste produto.");
+      return;
+    }
+  } else {
+    // Produto ainda não existe
+    carrinho.push({
+      ...produto,
+      quantidade: 1,
+    });
   }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  alert("Produto adicionado ao carrinho!");
+}
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-6">
