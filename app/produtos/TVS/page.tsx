@@ -1,0 +1,188 @@
+"use client";
+
+/* eslint-disable @next/next/no-img-element */
+
+
+interface Produto {
+  nome: string;
+  categoria: string;
+  preco: string;
+  imagem: string;
+  descricao: string;
+  quantidade?: number;
+}
+
+export default function TVSPage() {
+
+  const produtos = [
+    {
+      nome: 'Smart TV TCL 32" HD QLED S5K',
+      categoria: "TV",
+      preco: "R$ 937,00",
+      imagem:
+        "https://http2.mlstatic.com/D_NQ_NP_2X_960494-MLA112210788972_062026-F.webp",
+      descricao:
+        "Tela QLED com HDR10, Google TV integrado, Dolby Audio e design sem bordas para uma experiência imersiva.",
+    },
+    {
+      nome: 'Smart TV TCL 40" Full HD QLED',
+      categoria: "TV",
+      preco: "R$ 1.538,00",
+      imagem:
+        "https://http2.mlstatic.com/D_NQ_NP_2X_691006-MLA112210093376_062026-F.webp",
+      descricao:
+        "Tela Full HD QLED, Google TV, Wi-Fi Dual Band, Bluetooth 5.0 e múltiplas conexões HDMI.",
+    },
+    {
+      nome: 'Smart TV AOC 32" Roku TV',
+      categoria: "TV",
+      preco: "R$ 934,27",
+      imagem:
+        "https://m.media-amazon.com/images/I/618HST9rp6L.AC_SL1000.jpg",
+      descricao:
+        "Roku TV integrada, Wi-Fi, compatível com Alexa e Google Assistente, design moderno sem bordas.",
+    },
+    {
+      nome: 'Samsung Smart TV 50" Crystal UHD 4K',
+      categoria: "TV",
+      preco: "R$ 4.399,35",
+      imagem:
+        "https://m.media-amazon.com/images/I/71iGUDQvOYL.AC_SL1500.jpg",
+      descricao:
+        "Crystal UHD 4K, Xbox Cloud Gaming, Alexa integrada e qualidade de imagem impressionante.",
+    },
+    {
+      nome: 'Smart TV TCL 65" QLED 4K P7K',
+      categoria: "TV",
+      preco: "R$ 2.164,00",
+      imagem:
+        "https://m.media-amazon.com/images/I/81AtIfydXvL.AC_SY300_SX300_QL70_ML2.jpg",
+      descricao:
+        "QLED 4K com Dolby Vision, Dolby Atmos, Google TV e design premium para máxima imersão.",
+    },
+        {
+      nome: 'LG Smart TV 55" UHD 4K',
+      categoria: "TV",
+      preco: "R$ 2.799,90",
+      imagem:
+        "https://www.lg.com/content/dam/channel/wcms/br/images/tv/ua8550psa/new-galery/2-1600-ua8550.jpg/jcr:content/renditions/thum-1600x1062.jpeg?w=800",
+      descricao:
+        "Tela UHD 4K com HDR10 Pro, sistema WebOS 23, ThinQ AI e Alexa integrada para uma experiência inteligente.",
+    },
+    {
+      nome: 'Philips Smart TV 43" Full HD',
+      categoria: "TV",
+      preco: "R$ 1.699,90",
+      imagem:
+        "https://m.media-amazon.com/images/I/61ClMfyPd+L.AC_SL1000.jpg",
+      descricao:
+        "Google TV integrada, Full HD, HDR, Wi-Fi e Bluetooth para acesso rápido aos seus aplicativos favoritos.",
+    },
+    {
+      nome: 'TCL Smart TV 75" QLED 4K',
+      categoria: "TV",
+      preco: "R$ 4.999,90",
+      imagem:
+        "https://http2.mlstatic.com/D_NQ_NP_2X_839737-MLA113356249335_062026-F.webp",
+      descricao:
+        "Tela gigante de 75 polegadas com tecnologia QLED, Dolby Vision, HDR10+ e Google TV para máximo entretenimento.",
+    },
+  ];
+
+  function adicionarCarrinho(produto: Produto) {
+  const carrinho: Produto[] = JSON.parse(
+    localStorage.getItem("carrinho") || "[]"
+  );
+
+  const index = carrinho.findIndex(
+    (item) => item.nome === produto.nome
+  );
+
+  if (index !== -1) {
+    // Produto já existe no carrinho
+    if ((carrinho[index].quantidade ?? 1) < 5) {
+      carrinho[index].quantidade =
+        (carrinho[index].quantidade ?? 1) + 1;
+    } else {
+      alert("Você só pode adicionar até 5 unidades deste produto.");
+      return;
+    }
+  } else {
+    // Produto ainda não existe
+    carrinho.push({
+      ...produto,
+      quantidade: 1,
+    });
+  }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  alert("Produto adicionado ao carrinho!");
+}
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold text-gray-800 mb-4">
+            TVs
+          </h1>
+
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Confira nossa seleção de Smart TVs com as melhores tecnologias,
+            resolução 4K, Google TV, Roku TV e muito mais.
+          </p>
+        </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {produtos.map((produto, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100"
+            >
+              <div className="relative bg-gradient-to-b from-gray-50 to-white p-5">
+                <span className="absolute top-4 left-4 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {produto.categoria}
+                </span>
+
+                <img
+                  src={produto.imagem}
+                  alt={produto.nome}
+                  className="w-full h-60 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+
+              <div className="p-5 flex flex-col h-[280px]">
+                <h2 className="text-lg font-bold text-gray-800 line-clamp-2 mb-3">
+                  {produto.nome}
+                </h2>
+
+                <p className="text-gray-500 text-sm line-clamp-4 flex-1">
+                  {produto.descricao}
+                </p>
+
+                <div className="mt-5">
+                  <p className="text-3xl font-extrabold text-[#e30613]">
+                    {produto.preco}
+                  </p>
+
+                  <p className="text-xs text-gray-400 mt-1 mb-4">
+                    À vista no PIX
+                  </p>
+
+                  <button
+                    onClick={() => adicionarCarrinho(produto)}
+                    className="w-full bg-gradient-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                  >
+                    Adicionar no carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}

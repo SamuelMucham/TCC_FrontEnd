@@ -3,6 +3,15 @@
 import { useRouter } from "next/navigation";
 /* eslint-disable @next/next/no-img-element*/
 
+interface Produto {
+  nome: string;
+  categoria: string;
+  preco: string;
+  imagem: string;
+  descricao: string;
+  quantidade?: number;
+}
+
 export default function Home() {
   
   const router = useRouter();
@@ -75,16 +84,36 @@ export default function Home() {
     },
   ];
 
-  function adicionarCarrinho(produto: unknown) {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  function adicionarCarrinho(produto: Produto) {
+  const carrinho: Produto[] = JSON.parse(
+    localStorage.getItem("carrinho") || "[]"
+  );
 
-    carrinho.push(produto);
+  const index = carrinho.findIndex(
+    (item) => item.nome === produto.nome
+  );
 
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    router.push("/carrinho");
+  if (index !== -1) {
+    // Produto já existe no carrinho
+    if ((carrinho[index].quantidade ?? 1) < 5) {
+      carrinho[index].quantidade =
+        (carrinho[index].quantidade ?? 1) + 1;
+    } else {
+      alert("Você só pode adicionar até 5 unidades deste produto.");
+      return;
+    }
+  } else {
+    // Produto ainda não existe
+    carrinho.push({
+      ...produto,
+      quantidade: 1,
+    });
   }
 
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  alert("Produto adicionado ao carrinho!");
+}
   return (
   <div className="bg-gray-50 min-h-screen">
     <section className="relative bg-gray-800 h-87.5 flex items-center justify-center text-center text-white overflow-hidden">
@@ -179,4 +208,4 @@ export default function Home() {
     </div>
   </div>
 );
-}
+  }

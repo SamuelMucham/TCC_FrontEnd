@@ -1,4 +1,4 @@
-# assistencia tecnica do forja API - Backend 
+# assistencia tecnica do forja API - frontend
 
 ## 📋 Introdução
 O **assistencia tecnica do forja** é um sistema completo de gerenciamento para assistências técnicas especializadas em aparelhos eletrônicos (smartphones, notebooks, tablets, etc.). O sistema resolve o problema de falta de controle de ordens de serviço, fluxo de reparos e comunicação interna entre gestores e técnicos.
