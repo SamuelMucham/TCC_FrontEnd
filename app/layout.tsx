@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Busca from "./components/Busca";
+import AuthMenu from "./components2/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,13 +41,7 @@ export default function RootLayout({
                 <Busca />
 
                 <div className="flex gap-6 text-sm text-gray-600">
-                  <a
-                    href="/entreOuCadastreSe"
-                    className="flex flex-col items-center hover:text-[#e30613] transition"
-                  >
-                    <span className="text-xl"></span>
-                    <span className="text-xs">Entre ou Cadastre-se</span>
-                  </a>
+                  <AuthMenu />
 
                   <a
                     href="/carrinho"
@@ -65,7 +60,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/produtos/todos"
-                    className="hover:text-red-500 transition px-20"
+                    className="hover:text-red-500 transition px-19"
                   >
                     TODOS
                   </Link>
@@ -74,7 +69,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/produtos/TVS"
-                    className="hover:text-red-500 transition px-20"
+                    className="hover:text-red-500 transition px-19"
                   >
                     TVS
                   </Link>
@@ -83,7 +78,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/produtos/NOTEBOOKS"
-                    className="hover:text-red-500 transition px-20"
+                    className="hover:text-red-500 transition px-19"
                   >
                     NOTEBOOKS
                   </Link>
@@ -92,7 +87,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/produtos/COMPUTADORES"
-                    className="hover:text-red-500 transition px-20"
+                    className="hover:text-red-500 transition px-19"
                   >
                     COMPUTADORES
                   </Link>
@@ -101,7 +96,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/produtos/perifericos"
-                    className="hover:text-red-500 transition px-20"
+                    className="hover:text-red-500 transition px-19"
                   >
                     PERIFÉRICOS
                   </Link>
@@ -111,7 +106,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/pecas/todasAsPecas"
-                    className="hover:text-gray-400 transition px-10"
+                    className="hover:text-gray-400 transition px-9"
                   >
                     TODAS AS PEÇAS
                   </Link>
@@ -119,7 +114,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/pecas/pecasParaCelulares"
-                    className="hover:text-gray-400 transition px-10"
+                    className="hover:text-gray-400 transition px-9"
                   >
                     PEÇAS PARA CELULARES
                   </Link>
@@ -128,7 +123,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/pecas/pecasParaTVS"
-                    className="hover:text-gray-400 transition px-10"
+                    className="hover:text-gray-400 transition px-9"
                   >
                     PEÇAS PARA TVS
                   </Link>
@@ -137,7 +132,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/pecas/pecasParaNotebooks"
-                    className="hover:text-gray-400 transition px-10"
+                    className="hover:text-gray-400 transition px-9"
                   >
                     PEÇAS PARA NOTEBOOKS
                   </Link>
@@ -146,7 +141,7 @@ export default function RootLayout({
                 <li>
                   <Link
                     href="/pecas/pecasParaComputadores"
-                    className="hover:text-gray-400 transition px-10"
+                    className="hover:text-gray-400 transition px-9"
                   >
                     PEÇAS PARA COMPUTADORES
                   </Link>

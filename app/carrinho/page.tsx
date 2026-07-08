@@ -118,6 +118,7 @@ export default function CarrinhoPage() {
                 <button onClick={limparCarrinho} className="flex-1 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white py-4 rounded-xl font-bold transition">
                   Limpar Carrinho
                 </button>
+                
                 <button onClick={() => router.push("/pagamento")} className="flex-1 bg-[#e30613] hover:bg-red-700 text-white py-4 rounded-xl font-bold transition">
                   Finalizar Compra
                 </button>

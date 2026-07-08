@@ -5,7 +5,38 @@ import { useRouter } from "next/navigation";
 
 export default function EntreOuCadastreSePage() {
   const [cadastro, setCadastro] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
   const router = useRouter();
+
+  function entrar() {
+    if (!email.trim()) {
+      alert("Digite seu e-mail para entrar.");
+      return;
+    }
+
+    localStorage.setItem(
+      "usuario",
+      JSON.stringify({ nome: nome.trim() || undefined, email: email.trim() })
+    );
+
+    router.push("/");
+  }
+
+  function cadastrar() {
+    if (!nome.trim() || !email.trim()) {
+      alert("Preencha nome e e-mail para se cadastrar.");
+      return;
+    }
+
+    localStorage.setItem(
+      "usuario",
+      JSON.stringify({ nome: nome.trim(), email: email.trim() })
+    );
+
+    alert("Cadastro realizado com sucesso!");
+    router.push("/");
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
@@ -26,6 +57,8 @@ export default function EntreOuCadastreSePage() {
               </label>
               <input
                 type="text"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
                 placeholder="Digite seu nome"
                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e30613] text-black"
               />
@@ -36,6 +69,8 @@ export default function EntreOuCadastreSePage() {
             <label className="block font-medium mb-1 text-black">E-mail</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Digite seu e-mail"
               className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e30613] text-black"
             />
@@ -65,13 +100,7 @@ export default function EntreOuCadastreSePage() {
 
           <button
             type="button"
-            onClick={() => {
-              if (cadastro) {
-                alert("Cadastro realizado com sucesso!");
-              } else {
-                router.push("/");
-              }
-            }}
+            onClick={cadastro ? cadastrar : entrar}
             className="w-full bg-[#e30613] hover:bg-red-700 text-white font-bold py-3 rounded-lg transition"
           >
             {cadastro ? "Cadastrar" : "Entrar"}

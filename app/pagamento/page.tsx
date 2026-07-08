@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -74,6 +75,7 @@ export default function PagamentoPage() {
                   key={index}
                   className="flex items-center gap-4 border-b pb-4"
                 >
+
                   <img
                     src={item.imagem}
                     alt={item.nome}
@@ -103,18 +105,35 @@ export default function PagamentoPage() {
           </div>
 
           <div className="bg-white p-6 rounded-3xl shadow">
-            <h2 className="text-2xl font-bold mb-6 text-black">
-              Forma de Pagamento
-            </h2>
+  <h2 className="text-2xl font-bold mb-6 text-black">
+    Forma de Pagamento
+  </h2>
 
+  <div className="flex flex-col items-center justify-center py-6 border border-dashed border-gray-300 rounded-2xl">
+    <img
+      src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
+        `PIX - Assistência Técnica Forja - Total: R$ ${total
+          .toFixed(2)
+          .replace(".", ",")}`
+      )}`}
+      alt="QR Code para pagamento via PIX"
+      className="w-48 h-48"
+    />
+    <span className="text-sm text-gray-500 mt-3">
+      Escaneie o QR Code para pagar via PIX
+    </span>
+    <span className="text-lg font-bold text-red-600 mt-1">
+      R$ {total.toFixed(2).replace(".", ",")}
+    </span>
+  </div>
 
-            <button
-              onClick={finalizarPedido}
-              className="w-full mt-8 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold transition"
-            >
-              Finalizar Pedido
-            </button>
-          </div>
+  <button
+    onClick={finalizarPedido}
+    className="w-full mt-8 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold transition"
+  >
+    Finalizar Pedido
+  </button>
+</div>
         </div>
       )}
     </div>

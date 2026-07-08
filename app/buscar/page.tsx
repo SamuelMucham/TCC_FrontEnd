@@ -10,6 +10,10 @@ export default function ProdutoNaoEncontradoPage() {
           ERRO 404
         </span>
 
+        <div className="text-7xl mb-6" aria-hidden="true">
+          🔍
+        </div>
+
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
           Produto não encontrado
         </h1>
