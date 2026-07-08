@@ -3,60 +3,119 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+function normalizar(texto: string): string {
+  return texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
 export default function Busca() {
   const [busca, setBusca] = useState("");
   const router = useRouter();
 
   function pesquisar() {
-    const texto = busca.trim();
+    const bruto = busca.trim();
+    if (!bruto) return;
 
-    if (!texto) return;
+    const texto = normalizar(bruto);
 
-    if (
-      texto === "tv" ||
-      texto === "tvs" ||
-      texto === "televisao" ||
-      texto.includes("televisão")
-    ) {
-      router.push("/TVS");
+    if (["tv", "tvs", "televisao", "televisoes"].includes(texto)) {
+      router.push("/produtos/TVS");
+      return;
+    }
+
+    if (["notebook", "notebooks", "laptop", "laptops"].includes(texto)) {
+      router.push("/produtos/NOTEBOOKS");
       return;
     }
 
     if (
-      texto === "notebook" ||
-      texto === "notebooks"
+      [
+        "computador",
+        "computadores",
+        "pc",
+        "pcs",
+        "desktop",
+        "desktops",
+      ].includes(texto)
     ) {
-      router.push("/NOTEBOOKS");
+      router.push("/produtos/COMPUTADORES");
       return;
     }
 
-    if (
-      texto === "computador" ||
-      texto === "computadores" ||
-      texto === "pc" ||
-      texto === "pcs"
-    ) {
-      router.push("/COMPUTADORES");
-      return;
-    }
-
-    if (
-      texto === "celular" ||
-      texto === "celulares"
-    ) {
+    if (["celular", "celulares", "smartphone", "smartphones"].includes(texto)) {
       router.push("/#ofertas");
       return;
     }
 
-    if (
-      texto === "perifericos" ||
-      texto === "periféricos"
-    ) {
-      router.push("/perifericos");
+    if (["periferico", "perifericos"].includes(texto)) {
+      router.push("/produtos/perifericos");
       return;
     }
 
-    router.push(`/buscar?q=${encodeURIComponent(texto)}`);
+    if (
+      [
+        "peca de celular",
+        "pecas de celular",
+        "peca para celular",
+        "pecas para celular",
+        "peca de celulares",
+        "pecas de celulares",
+        "pecas para celulares",
+      ].includes(texto)
+    ) {
+      router.push("/pecas/pecasParaCelulares");
+      return;
+    }
+
+    if (
+      [
+        "peca de tv",
+        "pecas de tv",
+        "peca para tv",
+        "pecas para tv",
+        "peca de televisao",
+        "pecas de televisao",
+      ].includes(texto)
+    ) {
+      router.push("/pecas/pecasParaTVS");
+      return;
+    }
+
+    if (
+      [
+        "peca de notebook",
+        "pecas de notebook",
+        "peca para notebook",
+        "pecas para notebook",
+        "peca de notebooks",
+        "pecas de notebooks",
+        "pecas para notebooks",
+      ].includes(texto)
+    ) {
+      router.push("/pecas/pecasParaNotebooks");
+      return;
+    }
+
+    if (
+      [
+        "peca de computador",
+        "pecas de computador",
+        "peca para computador",
+        "pecas para computador",
+        "peca de computadores",
+        "pecas de computadores",
+        "pecas para computadores",
+      ].includes(texto)
+    ) {
+      router.push("/pecas/pecasParaComputadores");
+      return;
+    }
+
+    // Qualquer outra pesquisa cai na busca geral
+    router.push(`/buscar?q=${encodeURIComponent(bruto)}`);
   }
 
   return (

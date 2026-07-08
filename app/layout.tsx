@@ -27,139 +27,133 @@ export default function RootLayout({
             <span className="font-bold">1COMPRA</span>
           </div>
 
-  <div className="bg-white shadow-sm border-b border-gray-200">
-  <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-14">
-  <a
-    href="/"
-    className="text-3xl font-extrabold text-[#e30613] uppercase tracking-tighter"
-  >
-    Assistencia tecnica forja
-  </a>
+          <div className="bg-white shadow-sm border-b border-gray-200">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-14">
+                <a
+                  href="/"
+                  className="text-3xl font-extrabold text-[#e30613] uppercase tracking-tighter"
+                >
+                  Assistencia tecnica forja
+                </a>
 
-  <Busca />
+                <Busca />
 
-  <div className="flex gap-6 text-sm text-gray-600">
-    <a
-      href="/entreOuCadastreSe"
-      className="flex flex-col items-center hover:text-[#e30613] transition"
-    >
-      <span className="text-xl"></span>
-      <span className="text-xs">
-        Entre ou Cadastre-se
-      </span>
-    </a>
+                <div className="flex gap-6 text-sm text-gray-600">
+                  <a
+                    href="/entreOuCadastreSe"
+                    className="flex flex-col items-center hover:text-[#e30613] transition"
+                  >
+                    <span className="text-xl"></span>
+                    <span className="text-xs">Entre ou Cadastre-se</span>
+                  </a>
 
-    <a
-      href="/carrinho"
-      className="flex flex-col items-center hover:text-[#e30613] transition"
-    >
-      <span className="text-xl"></span>
-      <span className="text-xs">
-        Carrinho
-      </span>
-    </a>
-  </div>
-</div>
-          </div>
+                  <a
+                    href="/carrinho"
+                    className="flex flex-col items-center hover:text-[#e30613] transition"
+                  >
+                    <span className="text-xl"></span>
+                    <span className="text-xs">Carrinho</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
           <nav className="fixed top-0 left-0 w-full bg-[#222] text-white z-9999">
-  <div className="container mx-auto px-4 overflow-x-auto relative">
-    <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
-  <li>
-    <Link
-      href="/produtos/todos"
-      className="hover:text-red-500 transition px-25"
-    >
-      TODOS
-    </Link>
-  </li>
+            <div className="container mx-auto px-4 overflow-x-auto relative">
+              <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
+                <li>
+                  <Link
+                    href="/produtos/todos"
+                    className="hover:text-red-500 transition px-20"
+                  >
+                    TODOS
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/produtos/TVS"
-      className="hover:text-red-500 transition px-25"
-    >
-      TVS
-    </Link>
-  </li>
+                <li>
+                  <Link
+                    href="/produtos/TVS"
+                    className="hover:text-red-500 transition px-20"
+                  >
+                    TVS
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/produtos/NOTEBOOKS"
-      className="hover:text-red-500 transition px-25"
-    >
-      NOTEBOOKS
-    </Link>
-  </li>
+                <li>
+                  <Link
+                    href="/produtos/NOTEBOOKS"
+                    className="hover:text-red-500 transition px-20"
+                  >
+                    NOTEBOOKS
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/produtos/COMPUTADORES"
-      className="hover:text-red-500 transition px-25"
-    >
-      COMPUTADORES
-    </Link>
-  </li>
+                <li>
+                  <Link
+                    href="/produtos/COMPUTADORES"
+                    className="hover:text-red-500 transition px-20"
+                  >
+                    COMPUTADORES
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/produtos/perifericos"
-      className="hover:text-red-500 transition px-25"
-    >
-      PERIFÉRICOS
-    </Link>
-  </li>
-</ul>
+                <li>
+                  <Link
+                    href="/produtos/perifericos"
+                    className="hover:text-red-500 transition px-20"
+                  >
+                    PERIFÉRICOS
+                  </Link>
+                </li>
+              </ul>
+              <ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
+                <li>
+                  <Link
+                    href="/pecas/todasAsPecas"
+                    className="hover:text-gray-400 transition px-10"
+                  >
+                    TODAS AS PEÇAS
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pecas/pecasParaCelulares"
+                    className="hover:text-gray-400 transition px-10"
+                  >
+                    PEÇAS PARA CELULARES
+                  </Link>
+                </li>
 
-<ul className="flex whitespace-nowrap py-3 text-sm font-medium gap-6">
-  <li>
-    <Link
-      href="/pecasParaCelulares"
-      className="hover:text-gray-400 transition px-14"
-    >
-      PEÇAS PARA CELULARES
-    </Link>
-  </li>
+                <li>
+                  <Link
+                    href="/pecas/pecasParaTVS"
+                    className="hover:text-gray-400 transition px-10"
+                  >
+                    PEÇAS PARA TVS
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/pecasParaTVS"
-      className="hover:text-gray-400 transition px-14"
-    >
-      PEÇAS PARA TVS
-    </Link>
-  </li>
+                <li>
+                  <Link
+                    href="/pecas/pecasParaNotebooks"
+                    className="hover:text-gray-400 transition px-10"
+                  >
+                    PEÇAS PARA NOTEBOOKS
+                  </Link>
+                </li>
 
-  <li>
-    <Link
-      href="/pecasParaNotebooks"
-      className="hover:text-gray-400 transition px-14"
-    >
-      PEÇAS PARA NOTEBOOKS
-    </Link>
-  </li>
-
-  <li>
-    <Link
-      href="/pecasParaComputadores"
-      className="hover:text-gray-400 transition px-14"
-    >
-      PEÇAS PARA COMPUTADORES
-    </Link>
-  </li>
-
-  <li>
-    <Link
-      href="/pecasParaPerifericos"
-      className="hover:text-gray-400 transition px-14"
-    >
-      PEÇAS PARA PERIFÉRICOS
-    </Link>
-  </li>
-</ul>
-  </div>
-</nav>
+                <li>
+                  <Link
+                    href="/pecas/pecasParaComputadores"
+                    className="hover:text-gray-400 transition px-10"
+                  >
+                    PEÇAS PARA COMPUTADORES
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </header>
 
         <main>{children}</main>
@@ -168,10 +162,8 @@ export default function RootLayout({
           <div className="container mx-auto px-4 flex flex-col items-center justify-center">
             <p className="text-xs">
               <span className="text-gray-500">
-                <span className="font-bold">
-                  Assistencia tecnica forja
-                </span>{" "}
-                é uma plataforma de vendas de equipamentos de tecnologia,
+                <span className="font-bold">Assistencia tecnica forja</span> é
+                uma plataforma de vendas de equipamentos de tecnologia,
                 celulares e computadores.
               </span>
             </p>
