@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 /* eslint-disable @next/next/no-img-element*/
 
 interface Produto {
@@ -14,7 +13,6 @@ interface Produto {
 
 export default function Home() {
   
-  const router = useRouter();
 
   const produtos = [
     {
@@ -94,7 +92,6 @@ export default function Home() {
   );
 
   if (index !== -1) {
-    // Produto já existe no carrinho
     if ((carrinho[index].quantidade ?? 1) < 5) {
       carrinho[index].quantidade =
         (carrinho[index].quantidade ?? 1) + 1;
@@ -103,7 +100,6 @@ export default function Home() {
       return;
     }
   } else {
-    // Produto ainda não existe
     carrinho.push({
       ...produto,
       quantidade: 1,
@@ -195,7 +191,7 @@ export default function Home() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>

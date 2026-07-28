@@ -140,7 +140,7 @@ export default function TVSPage() {
               key={index}
               className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100"
             >
-              <div className="relative bg-gradient-to-b from-gray-50 to-white p-5">
+              <div className="relative bg-linear-to-b from-gray-50 to-white p-5">
                 <span className="absolute top-4 left-4 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full">
                   {produto.categoria}
                 </span>
@@ -152,7 +152,7 @@ export default function TVSPage() {
                 />
               </div>
 
-              <div className="p-5 flex flex-col h-[280px]">
+              <div className="p-5 flex flex-col h-70">
                 <h2 className="text-lg font-bold text-gray-800 line-clamp-2 mb-3">
                   {produto.nome}
                 </h2>
@@ -172,7 +172,7 @@ export default function TVSPage() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-gradient-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>

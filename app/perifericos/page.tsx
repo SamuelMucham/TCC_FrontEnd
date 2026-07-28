@@ -1,7 +1,5 @@
 "use client";
 
-import router from "next/router";
-
 /* eslint-disable @next/next/no-img-element */
 
 interface Produto {
@@ -24,15 +22,6 @@ export default function perifericosPage() {
         "https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_gg.jpg",
       descricao:
         "Headset Gamer Redragon Zeus X, Chroma Mk.II, RGB, Som Surround 7.1, Drivers 53mm, USB, Preto e Vermelho - H510-RGB",
-    },
-    {
-      nome: "Teclado Mecânico",
-      categoria: "Periférico",
-      preco: "R$ 258,81",
-      imagem:
-        "http://images4.kabum.com.br/produtos/fotos/535604/teclado-mecanico-gamer-machenike-k500-b61-switch-brown-abnt-branco-k500-b61bbr_1769021519_gg.jpg",
-      descricao:
-        "Teclado Mecânico Gamer Machenike K500-B61, Switch Huano Brown, ABNT, Branco - K500-B61BBR",
     },
     {
       nome: "Mouse Gamer Sem Fio",
@@ -100,7 +89,6 @@ export default function perifericosPage() {
   );
 
   if (index !== -1) {
-    // Produto já existe no carrinho
     if ((carrinho[index].quantidade ?? 1) < 5) {
       carrinho[index].quantidade =
         (carrinho[index].quantidade ?? 1) + 1;
@@ -109,7 +97,6 @@ export default function perifericosPage() {
       return;
     }
   } else {
-    // Produto ainda não existe
     carrinho.push({
       ...produto,
       quantidade: 1,
@@ -139,9 +126,9 @@ export default function perifericosPage() {
           {produtos.map((produto, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100"
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100 cursor-pointer"
             >
-              ++
+              
               <div className="relative bg-linear-to-b from-gray-50 to-white p-5">
                 <span className="absolute top-4 left-4 z-10 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full">
                   {produto.categoria}
@@ -173,7 +160,7 @@ export default function perifericosPage() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>

@@ -114,7 +114,6 @@ export default function Busca() {
       return;
     }
 
-    // Qualquer outra pesquisa cai na busca geral
     router.push(`/buscar?q=${encodeURIComponent(bruto)}`);
   }
 

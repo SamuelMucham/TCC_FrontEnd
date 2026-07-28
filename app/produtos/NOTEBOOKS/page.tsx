@@ -2,7 +2,6 @@
 
 /* eslint-disable @next/next/no-img-element */
 
-import { useRouter } from "next/navigation";
 
 interface Produto {
   nome: string;
@@ -14,7 +13,6 @@ interface Produto {
 }
 
 export default function NotebooksPage() {
-  const router = useRouter();
 
   const produtos = [
     {
@@ -54,13 +52,13 @@ export default function NotebooksPage() {
         "ASUS VivoBook 15 com Intel Core i5, SSD de 512GB, design fino e tela NanoEdge Full HD.",
     },
     {
-      nome: "Notebook Samsung Galaxy Book4",
+      nome: "Notebook Acer Nitro V15",
       categoria: "NOTEBOOK",
-      preco: "R$ 3.999,90",
+      preco: "R$ 8,999",
       imagem:
-        "https://samsungbrshop.vtexassets.com/arquivos/ids/253818-600-auto?v=638850946568430000",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_933021-MLA99446594058_112025-F.webp",
       descricao:
-        "Samsung Galaxy Book4 com Intel Core i5, SSD de 512GB e integração perfeita com smartphones Galaxy.",
+        "Notebook Acer Nitro V15 ANV15‑52‑51E4 – Intel Core i5-13420H 13ª Geração 16GB DDR5 NVIDIA GeForce RTX 4050 512SSD Tela 15,6″ 165 Hz Windows 11 Home Teclado Retroiluminado Wi-Fi 6",
     },
     {
       nome: "Notebook HP 256 G9",
@@ -210,7 +208,7 @@ export default function NotebooksPage() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>

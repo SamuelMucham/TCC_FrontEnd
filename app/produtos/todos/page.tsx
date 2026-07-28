@@ -1,8 +1,5 @@
 "use client";
 
-import router from "next/router";
-
-
 /* eslint-disable @next/next/no-img-element */
 
 interface Produto {
@@ -52,15 +49,6 @@ export default function todosPage() {
         "https://http2.mlstatic.com/D_NQ_NP_2X_982613-MLA87788350616_072025-F.webp",
       descricao:
         "ASUS VivoBook 15 com Intel Core i5, SSD de 512GB, design fino e tela NanoEdge Full HD.",
-    },
-    {
-      nome: "Notebook Samsung Galaxy Book4",
-      categoria: "NOTEBOOK",
-      preco: "R$ 3.999,90",
-      imagem:
-        "https://samsungbrshop.vtexassets.com/arquivos/ids/253818-600-auto?v=638850946568430000",
-      descricao:
-        "Samsung Galaxy Book4 com Intel Core i5, SSD de 512GB e integração perfeita com smartphones Galaxy.",
     },
     {
       nome: "Notebook HP 256 G9",
@@ -169,15 +157,6 @@ export default function todosPage() {
         "https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_gg.jpg",
       descricao:
         "Headset Gamer Redragon Zeus X, Chroma Mk.II, RGB, Som Surround 7.1, Drivers 53mm, USB, Preto e Vermelho - H510-RGB",
-    },
-    {
-      nome: "Teclado Mecânico",
-      categoria: "Periférico",
-      preco: "R$ 258,81",
-      imagem:
-        "http://images4.kabum.com.br/produtos/fotos/535604/teclado-mecanico-gamer-machenike-k500-b61-switch-brown-abnt-branco-k500-b61bbr_1769021519_gg.jpg",
-      descricao:
-        "Teclado Mecânico Gamer Machenike K500-B61, Switch Huano Brown, ABNT, Branco - K500-B61BBR",
     },
     {
       nome: "Mouse Gamer Sem Fio",
@@ -491,7 +470,7 @@ export default function todosPage() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>

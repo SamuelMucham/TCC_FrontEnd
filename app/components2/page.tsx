@@ -16,6 +16,7 @@ export default function AuthMenu() {
   useEffect(() => {
     const salvo = localStorage.getItem("usuario");
     if (salvo) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUsuario(JSON.parse(salvo));
     }
   }, []);

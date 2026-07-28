@@ -27,11 +27,11 @@ export default function perifericosPage() {
     {
       nome: "Teclado Mecânico",
       categoria: "Periférico",
-      preco: "R$ 258,81",
+      preco: "R$ 600,00",
       imagem:
-        "http://images4.kabum.com.br/produtos/fotos/535604/teclado-mecanico-gamer-machenike-k500-b61-switch-brown-abnt-branco-k500-b61bbr_1769021519_gg.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_876306-MLB115111396927_072026-F-teclado-mecnico-aula-f75-sem-fio-tri-mode-75-hotswap-rgb.webp",
       descricao:
-        "Teclado Mecânico Gamer Machenike K500-B61, Switch Huano Brown, ABNT, Branco - K500-B61BBR",
+        "Teclado Mecânico Aula F75 Sem Fio Tri Mode 75% Hotswap Rgb",
     },
     {
       nome: "Mouse Gamer Sem Fio",
@@ -172,7 +172,7 @@ export default function perifericosPage() {
 
                   <button
                     onClick={() => adicionarCarrinho(produto)}
-                    className="w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+                    className="cursor-pointer w-full bg-linear-to-r from-[#e30613] to-red-700 hover:from-red-700 hover:to-[#e30613] text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Adicionar no carrinho
                   </button>
