@@ -53,7 +53,7 @@ export default function NotebooksPage() {
     },
     {
       nome: "Notebook Acer Nitro V15",
-      categoria: "NOTEBOOK",
+      categoria: "Gamer",
       preco: "R$ 8,999",
       imagem:
         "https://http2.mlstatic.com/D_NQ_NP_2X_933021-MLA99446594058_112025-F.webp",
