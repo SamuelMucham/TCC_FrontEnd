@@ -16,78 +16,7 @@ interface Produto {
 export default function ComputadoresPage() {
 
   const produtos = [
-    {
-      nome: "Computador PC Gamer Completo",
-      categoria: "Computador",
-      preco: "R$ 2.249,90",
-      imagem:
-        "https://images8.kabum.com.br/produtos/fotos/sync_mirakl/646348/xlarge/Computador-PC-Gamer-Completo-Tob-Intel-Core-I7-SSD-480GB-16gb-Gabinete-Aqu-rio-Teclado-Mouse-Mouse-Pad-E-Headset-Gamer-Monitor-19-WINDOWS-10-Pro-Trial_1760704454.jpg",
-      descricao:
-        "Intel Core I7 SSD 480GB 16gb Gabinete Aquário Teclado Mouse Mouse Pad E Headset Gamer Monitor 19 WINDOWS 10 Pro Trial",
-    },
-    {
-      nome: "PC Gamer Studiopc Tiamat",
-      categoria: "Computador",
-      preco: "R$ 61.999,00",
-      imagem:
-        "https://images5.kabum.com.br/produtos/fotos/sync_mirakl/1033415/xlarge/PC-Gamer-Studiopc-Tiamat-Ryzen-7-9800x3d-32GB-RAM-RTX-5080-16GB-SSD-1TB-Fonte-850w-Water-Cooler-360mm-5-Fans-RGB-Windows-11-Pro-8565432_1777475013.jpg",
-      descricao:
-        "Ryzen 7 9800x3d, 32GB RAM, RTX 5080 16GB, SSD 1TB, Fonte 850w, Water Cooler 360mm, 5 Fans RGB, Windows 11 Pro - 8565432",
-    },
-    {
-      nome: "PC Gamer Aquário",
-      categoria: "Computador",
-      preco: "R$ 45.799,00",
-      imagem:
-        "https://images4.kabum.com.br/produtos/fotos/sync_mirakl/796624/xlarge/PC-Gamer-Aqu-rio-Intel-i7-14700KF-RTX-5080-64gb-Ddr5-Nvme-2TB-Kalango-Games_1775947410.png",
-      descricao:
-        "Intel i7 14700KF, RTX 5080, 64gb Ddr5, Nvme 2TB - Kalango Games",
-    },
-    {
-      nome: "PC Gamer Amd Aquário",
-      categoria: "Computador",
-      preco: "R$ 32.799,00",
-      imagem:
-        "https://images1.kabum.com.br/produtos/fotos/sync_mirakl/725141/xlarge/PC-Gamer-Amd-Aqu-rio-Ryzen-7-9800x3d-RTX-5070-Ti-32gb-Ddr5-2TB-Nvme-W11-Kalango-Games_1775750314.png",
-      descricao:
-        "Ryzen 7 9800x3d, RTX 5070 Ti, 32gb Ddr5, 2TB Nvme, W11 - Kalango Games",
-    },
-    {
-      nome: "PC Workstation",
-      categoria: "Computador",
-      preco: "R$ 59.999,00",
-      imagem:
-        "https://images1.kabum.com.br/produtos/fotos/sync_mirakl/796621/xlarge/PC-Workstation-Intel-i9-14900KF-RTX-5080-128GB-Ddr5-Nvme-4TB-W11-Kalango-Games_1776040112.png",
-      descricao:
-        "Intel i9 14900KF, RTX 5080, 128GB Ddr5, Nvme 4TB, W11 - Kalango Games",
-    },
-    {
-      nome: "PC Gamer Completo",
-      categoria: "Computador",
-      preco: "R$ 3.799,00",
-      imagem:
-        "https://images7.kabum.com.br/produtos/fotos/sync_mirakl/684007/xlarge/PC-Gamer-Completo-Ryzen-5-5600gt-16gb-Ddr4-SSD-480GB-500w-80-Plus-PCgt13-e_1779735227.png",
-      descricao:
-        " Ryzen 5 5600gt, 16gb Ddr4, SSD 480GB, 500w 80 Plus, PCgt13-e",
-    },
-        {
-      nome: 'Pc Gamer Completo Tob',
-      categoria: "Computador",
-      preco: "R$ 2.479,98",
-      imagem:
-        "https://images5.kabum.com.br/produtos/fotos/sync_mirakl/501425/xlarge/Pc-Gamer-Completo-Tob-Intel-Core-I7-16GB-VGA-GT730-4GB-SSD-960GB-Windows-10-Pro-Trial-Monitor-21-5-Teclado-E-Mouse-Mouse-Pad-Headset_1775478813.jpg",
-      descricao:
-        "Intel Core I7, 16GB, VGA GT730 4GB, SSD 960GB, Windows 10 Pro Trial + Monitor 21.5 + Teclado E Mouse + Mouse Pad + Headset",
-    },
-    {
-      nome: "PC Gamer",
-      categoria: "GAMER",
-      preco: "R$ 26.706,60",
-      imagem:
-        "https://images6.kabum.com.br/produtos/fotos/sync_mirakl/697206/xlarge/PC-Gamer-Ryzen-7-9800x3d-RTX-4070-Super-32gb-Ddr5-RGB-SSD-Nvme-2TB-1000w-80-Plus-Gold-Toppc01-e_1775063612.webp",
-      descricao:
-        "Ryzen 7 9800x3d, RTX 4070 Super, 32gb Ddr5 RGB, SSD Nvme 2TB, 1000w 80 Plus Gold, Toppc01-e",
-    },
+    
   ];
 
   function adicionarCarrinho(produto: Produto) {

@@ -15,78 +15,7 @@ interface Produto {
 export default function TVSPage() {
 
   const produtos = [
-    {
-      nome: 'Smart TV TCL 32" HD QLED S5K',
-      categoria: "TV",
-      preco: "R$ 937,00",
-      imagem:
-        "https://http2.mlstatic.com/D_NQ_NP_2X_960494-MLA112210788972_062026-F.webp",
-      descricao:
-        "Tela QLED com HDR10, Google TV integrado, Dolby Audio e design sem bordas para uma experiência imersiva.",
-    },
-    {
-      nome: 'Smart TV TCL 40" Full HD QLED',
-      categoria: "TV",
-      preco: "R$ 1.538,00",
-      imagem:
-        "https://http2.mlstatic.com/D_NQ_NP_2X_691006-MLA112210093376_062026-F.webp",
-      descricao:
-        "Tela Full HD QLED, Google TV, Wi-Fi Dual Band, Bluetooth 5.0 e múltiplas conexões HDMI.",
-    },
-    {
-      nome: 'Smart TV AOC 32" Roku TV',
-      categoria: "TV",
-      preco: "R$ 934,27",
-      imagem:
-        "https://m.media-amazon.com/images/I/618HST9rp6L.AC_SL1000.jpg",
-      descricao:
-        "Roku TV integrada, Wi-Fi, compatível com Alexa e Google Assistente, design moderno sem bordas.",
-    },
-    {
-      nome: 'Samsung Smart TV 50" Crystal UHD 4K',
-      categoria: "TV",
-      preco: "R$ 4.399,35",
-      imagem:
-        "https://m.media-amazon.com/images/I/71iGUDQvOYL.AC_SL1500.jpg",
-      descricao:
-        "Crystal UHD 4K, Xbox Cloud Gaming, Alexa integrada e qualidade de imagem impressionante.",
-    },
-    {
-      nome: 'Smart TV TCL 65" QLED 4K P7K',
-      categoria: "TV",
-      preco: "R$ 2.164,00",
-      imagem:
-        "https://m.media-amazon.com/images/I/81AtIfydXvL.AC_SY300_SX300_QL70_ML2.jpg",
-      descricao:
-        "QLED 4K com Dolby Vision, Dolby Atmos, Google TV e design premium para máxima imersão.",
-    },
-        {
-      nome: 'LG Smart TV 55" UHD 4K',
-      categoria: "TV",
-      preco: "R$ 2.799,90",
-      imagem:
-        "https://www.lg.com/content/dam/channel/wcms/br/images/tv/ua8550psa/new-galery/2-1600-ua8550.jpg/jcr:content/renditions/thum-1600x1062.jpeg?w=800",
-      descricao:
-        "Tela UHD 4K com HDR10 Pro, sistema WebOS 23, ThinQ AI e Alexa integrada para uma experiência inteligente.",
-    },
-    {
-      nome: 'Philips Smart TV 43" Full HD',
-      categoria: "TV",
-      preco: "R$ 1.699,90",
-      imagem:
-        "https://m.media-amazon.com/images/I/61ClMfyPd+L.AC_SL1000.jpg",
-      descricao:
-        "Google TV integrada, Full HD, HDR, Wi-Fi e Bluetooth para acesso rápido aos seus aplicativos favoritos.",
-    },
-    {
-      nome: 'TCL Smart TV 75" QLED 4K',
-      categoria: "TV",
-      preco: "R$ 4.999,90",
-      imagem:
-        "https://http2.mlstatic.com/D_NQ_NP_2X_839737-MLA113356249335_062026-F.webp",
-      descricao:
-        "Tela gigante de 75 polegadas com tecnologia QLED, Dolby Vision, HDR10+ e Google TV para máximo entretenimento.",
-    },
+
   ];
 
   function adicionarCarrinho(produto: Produto) {

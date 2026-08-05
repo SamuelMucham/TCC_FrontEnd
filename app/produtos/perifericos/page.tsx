@@ -15,78 +15,7 @@ interface Produto {
 export default function perifericosPage() {
 
   const produtos = [
-    {
-      nome: "Headset Gamer Redragon",
-      categoria: "Periférico",
-      preco: "R$ 377,64",
-      imagem:
-        "https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_gg.jpg",
-      descricao:
-        "Headset Gamer Redragon Zeus X, Chroma Mk.II, RGB, Som Surround 7.1, Drivers 53mm, USB, Preto e Vermelho - H510-RGB",
-    },
-    {
-      nome: "Teclado Mecânico",
-      categoria: "Periférico",
-      preco: "R$ 600,00",
-      imagem:
-        "https://http2.mlstatic.com/D_NQ_NP_2X_876306-MLB115111396927_072026-F-teclado-mecnico-aula-f75-sem-fio-tri-mode-75-hotswap-rgb.webp",
-      descricao:
-        "Teclado Mecânico Aula F75 Sem Fio Tri Mode 75% Hotswap Rgb",
-    },
-    {
-      nome: "Mouse Gamer Sem Fio",
-      categoria: "Periférico",
-      preco: "R$ 249,90",
-      imagem:
-        "https://images0.kabum.com.br/produtos/fotos/sync_mirakl/883180/xlarge/Mouse-Gamer-Sem-Fio-Attack-Shark-X11-22000-Dpi-59g-Tri-mode-Com-Dock-Magn-tico-RGB-Preto_1772819622.jpg",
-      descricao:
-        "Mouse Gamer Sem Fio Attack Shark X11, 22000 Dpi, 59g, Tri-mode Com Dock Magnético, RGB, Preto",
-    },
-    {
-      nome: "Microfone Dinâmico Gamer",
-      categoria: "Periférico",
-      preco: "R$ 454,53",
-      imagem:
-        "https://images2.kabum.com.br/produtos/fotos/592292/microfone-dinamico-gamer-fifine-ampligame-rgb-cardioide-usb-c-anti-ruido-para-streaming-preto-am8_1733503402_gg.jpg",
-      descricao:
-        "Microfone Dinâmico Gamer Fifine Ampligame, RGB, Cardióide, USB-C, Anti-Ruído, Para Streaming, Preto - AM8",
-    },
-    {
-      nome: "Mousepad",
-      categoria: "Periférico",
-      preco: "R$ 117,64",
-      imagem:
-        "https://images0.kabum.com.br/produtos/fotos/103960/mousepad-gamer-rise-mode-rgb-estendido-900x300mm-preto-rm-mp-07-rgb_1747227673_gg.jpg",
-      descricao:
-        "Mousepad Gamer Rise Mode RGB, Estendido (900x300mm), Preto - RM-MP-07-RGB",
-    },
-    {
-      nome: "Mesa Digitalizadora",
-      categoria: "Periférico",
-      preco: "R$ 39.882,35",
-      imagem:
-        "https://images0.kabum.com.br/produtos/fotos/532470/mesa-digitalizadora-com-tela-wacom-cintiq-pro-22-caneta-ressonancia-eletromagnetica-5080-lpi-tela-21-5-4k-usb-c-preto-dth227k0a1_1713209881_gg.jpg",
-      descricao:
-        "Mesa Digitalizadora Com tela Wacom Cintiq Pro 22, Caneta Ressonância Eletromagnética, 5080 LPI, Tela 21.5 4K, USB-C, Preto - DTH227K0A1",
-    },
-    {
-      nome: "Óculos VR",
-      categoria: "Periférico",
-      preco: "R$ 12.989,40",
-      imagem:
-        "https://images4.kabum.com.br/produtos/fotos/628374/oculos-vr-pny-pico-neo-3-pro-eye-bluetooth-wi-fi-256gb-4k-branco-phs-n3-pe1018580_1725637511_gg.jpg",
-      descricao:
-        "Óculos VR PNY PICO Neo 3 Pro Eye, Bluetooth, Wi-Fi, 256GB, 4K, Branco - PHS-N3-PE1018580",
-    },
-    {
-      nome: "Teclado Mecânico",
-      categoria: "Periférico",
-      preco: "R$ 5.999,90",
-      imagem:
-        "https://images0.kabum.com.br/produtos/fotos/sync_mirakl/883110/xlarge/Teclado-Mec-nico-Gamer-Razer-Blackwidow-V4-Pro-75-Gengar-Edition-RGB-Switch-Mec-nico-Layout-Ansi-Usb-c-_1770926736.jpg",
-      descricao:
-        "Teclado Mecânico Gamer Razer Blackwidow V4 Pro 75% Gengar Edition – RGB, Switch Mecânico, Layout Ansi, Usb-c.",
-    },
+    
   ];
 
   function adicionarCarrinho(produto: Produto) {
