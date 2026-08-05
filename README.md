@@ -1,49 +1,153 @@
-# assistencia tecnica do forja API - frontend
+Documentação do Frontend Web
+Nome do Sistema
 
-## 📋 Introdução
-O **assistencia tecnica do forja** é um sistema completo de gerenciamento para assistências técnicas especializadas em aparelhos eletrônicos (smartphones, notebooks, tablets, etc.). O sistema resolve o problema de falta de controle de ordens de serviço, fluxo de reparos e comunicação interna entre gestores e técnicos.
+Assistência Técnica Forja
 
-- **Público-alvo:** Proprietários de assistências técnicas, gestores de serviços e técnicos de manutenção de eletrônicos.
+Objetivo
 
----
+O Frontend Web da Assistência Técnica Forja foi desenvolvido para oferecer uma interface moderna, intuitiva e responsiva, permitindo que os usuários consultem produtos, peças, realizem compras e acessem informações da assistência técnica de forma rápida e organizada.
 
-## 🛠️ Tecnologias Utilizadas
-- **Ambiente de Execução:** Node.js v20+
-- **Linguagem:** TypeScript
-- **Framework Web:** Express
-- **ORM (Mapeamento de Banco):** Prisma ORM
-- **Banco de Dados:** MySQL (via XAMPP/Local)
-- **Autenticação e Segurança:** JWT (JSON Web Token) & BcryptJS
-- **Documentação da API:** Swagger UI
+Tecnologias Utilizadas
+Next.js
+React
+TypeScript
+Tailwind CSS
+HTML5
+CSS3
+JavaScript
+LocalStorage
+Telas
+1. Página Inicial (Home)
+Objetivo
 
----
+Apresentar a página principal do sistema, exibindo os produtos em destaque e facilitando a navegação.
 
-## 📐 Arquitetura do Sistema
-O sistema foi desenvolvido seguindo o padrão de arquitetura em camadas (**MSC - Model, Service, Controller**), garantindo a separação de responsabilidades:
+Funcionalidades
+Banner principal;
+Barra de pesquisa;
+Menu de navegação;
+Produtos em destaque;
+Categorias de produtos;
+Acesso ao carrinho;
+Acesso ao login;
+Rodapé com informações da empresa.
+2. Tela de Login
+Objetivo
 
-- **Config:** Centraliza conexões com o banco de dados (Prisma) e especificações do Swagger.
-- **Controllers:** Camada responsável por receber as requisições HTTP, capturar os parâmetros/body e devolver as respostas.
-- **Services:** Camada de regras de negócio, validações de segurança e comunicação direta com o banco de dados através do Prisma.
+Permitir que o usuário realize sua autenticação no sistema.
 
----
+Funcionalidades
+Login com e-mail e senha;
+Cadastro de novos usuários;
+Validação dos campos;
+Redirecionamento para a página inicial após o login.
+3. Página de Produtos
+Objetivo
 
-## 📄 Documentação da API (Rotas)
+Exibir todos os produtos disponíveis para venda.
 
-A documentação interativa e completa da API está disponível via Swagger na rota `/api-docs`.
+Funcionalidades
+Listagem de produtos;
+Pesquisa por nome;
+Visualização de preço;
+Exibição de descrição;
+Adição ao carrinho.
+4. Página de Peças
+Objetivo
 
-| Método | Rota       | Descrição                                         | Autenticação |
-| :----- | :--------- | :------------------------------------------------ | :----------- |
-| POST   | `/usuarios`| Cadastra um novo funcionário (GESTOR ou TECNICO)  | Nenhuma      |
-| POST   | `/login`   | Realiza a autenticação e gera o Token JWT         | Nenhuma      |
-| POST   | `/ordens`  | Abre uma nova OS de aparelho eletrônico           | Nenhuma      |
-| GET    | `/ordens`  | Lista todas as ordens de serviço registradas      | Nenhuma      |
+Apresentar as peças disponíveis para manutenção e venda.
 
-### Exemplos de Requisição:
-- **POST /ordens (Criar OS de Eletrônico):**
-  ```json
-  {
-    "clienteNome": "Carlos Henrique",
-    "equipamento": "Samsung Galaxy S23",
-    "defeito": "Tela quebrada e conector de carga ruim",
-    "valor": 450.00
-  }
+Funcionalidades
+Listagem de peças;
+Organização por categoria;
+Visualização de informações do produto;
+Adição ao carrinho.
+5. Carrinho de Compras
+Objetivo
+
+Permitir que o usuário visualize e gerencie os produtos adicionados ao carrinho.
+
+Funcionalidades
+Listagem dos produtos;
+Alteração da quantidade;
+Remoção de itens;
+Cálculo automático do valor total;
+Botão para finalizar a compra.
+6. Página de Pagamento
+Objetivo
+
+Permitir que o usuário conclua a compra.
+
+Funcionalidades
+Pagamento via PIX;
+Exibição do QR Code;
+Confirmação do pagamento;
+Finalização do pedido.
+Navegação
+
+O sistema utiliza o App Router do Next.js, proporcionando uma navegação rápida entre as páginas.
+
+Estrutura das Rotas
+Home
+│
+├── Login
+│
+├── Produtos
+│
+├── Peças
+│
+├── Carrinho
+│
+└── Pagamento
+Fluxo do Usuário
+O usuário acessa a página inicial.
+Pode pesquisar produtos utilizando a barra de busca.
+Escolhe um produto ou peça.
+Adiciona o item ao carrinho.
+Visualiza os produtos selecionados no carrinho.
+Finaliza a compra acessando a página de pagamento.
+Após a confirmação do pagamento, o pedido é concluído.
+Estrutura do Projeto
+frontend/
+│
+├── app/
+├── components/
+│   ├── Busca.tsx
+│   ├── page.tsx
+│   ├── login/
+│   ├── produtos/
+│   ├── pecas/
+│   ├── carrinho/
+│   ├── pagamento/
+│   └── layout.tsx
+│
+├── public/
+│
+│
+└── package.json
+Recursos Utilizados
+Pesquisa de Produtos
+
+O sistema possui uma barra de pesquisa que permite localizar produtos e peças rapidamente.
+
+Carrinho de Compras
+
+O carrinho permite adicionar, remover e alterar a quantidade de produtos antes da finalização da compra.
+
+Armazenamento Local
+
+O navegador utiliza o LocalStorage para armazenar temporariamente os produtos adicionados ao carrinho, garantindo que as informações permaneçam disponíveis durante a navegação.
+
+Interface Responsiva
+
+O frontend foi desenvolvido com Tailwind CSS, permitindo que o sistema seja utilizado em computadores, tablets e smartphones, adaptando automaticamente o layout para diferentes tamanhos de tela.
+
+Benefícios do Frontend
+Interface moderna e intuitiva;
+Navegação rápida e organizada;
+Sistema responsivo para diferentes dispositivos;
+Pesquisa eficiente de produtos;
+Catálogo organizado por categorias;
+Carrinho de compras integrado;
+Processo de compra simples e prático;
+Melhor experiência para o usuário.
