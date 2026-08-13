@@ -26,6 +26,7 @@ export default function todosPage() {
   const index = carrinho.findIndex(
     (item) => item.nome === produto.nome
   );
+  
 
   if (index !== -1) {
     // Produto já existe no carrinho
