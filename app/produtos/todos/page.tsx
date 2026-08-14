@@ -1,56 +1,79 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 /* eslint-disable @next/next/no-img-element */
 
+// Interface ajustada para os campos reais retornados pelo seu Backend
 interface Produto {
+  id: string;
   nome: string;
   categoria: string;
-  preco: string;
-  imagem: string;
+  preco: number | string;
+  imageUrl: string;
   descricao: string;
   quantidade?: number;
 }
 
-export default function todosPage() {
+export default function TodosPage() {
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const produtos = [
-    
-  ].sort(() => Math.random() - 0.5);
+  // Busca os produtos direto da sua API Node/Prisma assim que a página carrega
+  useEffect(() => {
+    async function carregarProdutos() {
+      try {
+        const response = await fetch("http://localhost:8080/produtos");
+        const data = await response.json();
+        setProdutos(data);
+      } catch (error) {
+        console.error("Erro ao buscar produtos da API:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
 
+    carregarProdutos();
+  }, []);
 
   function adicionarCarrinho(produto: Produto) {
-  const carrinho: Produto[] = JSON.parse(
-    localStorage.getItem("carrinho") || "[]"
-  );
+    const carrinho: Produto[] = JSON.parse(
+      localStorage.getItem("carrinho") || "[]"
+    );
 
-  const index = carrinho.findIndex(
-    (item) => item.nome === produto.nome
-  );
-  
+    const index = carrinho.findIndex((item) => item.id === produto.id);
 
-  if (index !== -1) {
-    // Produto já existe no carrinho
-    if ((carrinho[index].quantidade ?? 1) < 5) {
-      carrinho[index].quantidade =
-        (carrinho[index].quantidade ?? 1) + 1;
+    if (index !== -1) {
+      // Produto já existe no carrinho
+      if ((carrinho[index].quantidade ?? 1) < 5) {
+        carrinho[index].quantidade = (carrinho[index].quantidade ?? 1) + 1;
+      } else {
+        alert("Você só pode adicionar até 5 unidades deste produto.");
+        return;
+      }
     } else {
-      alert("Você só pode adicionar até 5 unidades deste produto.");
-      return;
+      // Produto ainda não existe
+      carrinho.push({
+        ...produto,
+        quantidade: 1,
+      });
     }
-  } else {
-    // Produto ainda não existe
-    carrinho.push({
-      ...produto,
-      quantidade: 1,
-    });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    alert("Produto adicionado ao carrinho!");
   }
 
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-  alert("Produto adicionado ao carrinho!");
-}
-
+  if (loading) {
     return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <p className="text-xl font-semibold text-gray-600 animate-pulse">
+          Carregando produtos do servidor...
+        </p>
+      </div>
+    );
+  }
+
+  return (
     <div className="min-h-screen bg-gray-100 py-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
@@ -64,18 +87,18 @@ export default function todosPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {produtos.map((produto, index) => (
+          {produtos.map((produto) => (
             <div
-              key={index}
+              key={produto.id}
               className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-red-200 transition-all duration-300 hover:-translate-y-3 border border-gray-100"
             >
               <div className="relative bg-linear-to-b from-gray-50 to-white p-5">
-                <span className="absolute top-4 left-4 z-10 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="absolute top-4 left-4 z-10 bg-[#e30613] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
                   {produto.categoria}
                 </span>
 
                 <img
-                  src={produto.imagem}
+                  src={produto.imageUrl}
                   alt={produto.nome}
                   className="w-full h-60 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
@@ -92,7 +115,7 @@ export default function todosPage() {
 
                 <div className="mt-5">
                   <p className="text-3xl font-extrabold text-[#e30613]">
-                    {produto.preco}
+                    R$ {Number(produto.preco).toFixed(2)}
                   </p>
 
                   <p className="text-xs text-gray-400 mt-1 mb-4">
