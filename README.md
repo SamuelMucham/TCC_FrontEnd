@@ -1,145 +1,112 @@
-Documentação do Frontend Web
+# 🛒 Frontend Web — Assistência Técnica Forja
 
-Nome do Sistema
+> **Interface Web Moderna e Responsiva** desenvolvida como requisito para o Trabalho de Conclusão de Curso (TCC). Prover uma experiência de usuário fluida para catálogo de eletrônicos, gerenciamento de carrinho e checkout via PIX.
 
-Assistência Técnica Forja
+---
 
-Objetivo
+## 📌 **Visão Geral**
 
-O Frontend Web da Assistência Técnica Forja foi desenvolvido para oferecer uma interface moderna, intuitiva e responsiva, permitindo que os usuários consultem produtos, peças, realizem compras e acessem informações da assistência técnica de forma rápida e organizada.
+* **Projeto:** Frontend Web E-Commerce Assistência Técnica Forja
+* **Objetivo:** Prover uma interface intuitiva para navegação entre produtos e peças de reposição, cadastro/autenticação de clientes e fluxo de checkout ágil.
+* **Público-Alvo:** Clientes finais e consumidores da assistência técnica.
 
-Tecnologias Utilizadas
-Next.js
-React
-TypeScript
-Tailwind CSS
-HTML5
-CSS3
-JavaScript
-LocalStorage
-Telas
+---
 
-1. Página Inicial (Home)
-Objetivo
-Apresentar a página principal do sistema, exibindo os produtos em destaque e facilitando a navegação.
-Funcionalidades
-Banner principal;
-Barra de pesquisa;
-Menu de navegação;
-Produtos em destaque;
-Categorias de produtos;
-Acesso ao carrinho;
-Acesso ao login;
-Rodapé com informações da empresa.
+## 🛠️ **Tecnologias Utilizadas**
 
-2. Tela de Login
-Objetivo
-Permitir que o usuário realize sua autenticação no sistema.
-Funcionalidades
-Login com e-mail e senha;
-Cadastro de novos usuários;
-Validação dos campos;
-Redirecionamento para a página inicial após o login.
+* **Core Framework:** Next.js (App Router)
+* **Biblioteca UI:** React
+* **Linguagem:** TypeScript
+* **Estilização:** Tailwind CSS
+* **Persistência Local:** LocalStorage API
+* **Comunicação REST:** Fetch API (Integração com Backend Node.js)
 
-3. Página de Produtos
-Objetivo
-Exibir todos os produtos disponíveis para venda.
-Funcionalidades
-Listagem de produtos;
-Pesquisa por nome;
-Visualização de preço;
-Exibição de descrição;
-Adição ao carrinho.
+---
 
-4. Página de Peças
-Objetivo
-Apresentar as peças disponíveis para manutenção e venda.
-Funcionalidades
-Listagem de peças;
-Organização por categoria;
-Visualização de informações do produto;
-Adição ao carrinho.
+## 🏗️ **Estrutura do Projeto**
 
-5. Carrinho de Compras
-Objetivo
-Permitir que o usuário visualize e gerencie os produtos adicionados ao carrinho.
-Funcionalidades
-Listagem dos produtos;
-Alteração da quantidade;
-Remoção de itens;
-Cálculo automático do valor total;
-Botão para finalizar a compra.
-
-6. Página de Pagamento
-Objetivo
-Permitir que o usuário conclua a compra.
-Funcionalidades
-Pagamento via PIX;
-Exibição do QR Code;
-Confirmação do pagamento;
-Finalização do pedido.
-Navegação
-
-O sistema utiliza o App Router do Next.js, proporcionando uma navegação rápida entre as páginas.
-
-## Estrutura das Rotas
-Estrutura das Rotas
-Home
-│
-├── Login
-│
-├── Produtos
-│
-├── Peças
-│
-├── Carrinho
-│
-└── Pagamento
-
-## Fluxo do Usuário
-Fluxo do Usuário
-O usuário acessa a página inicial.
-Pode pesquisar produtos utilizando a barra de busca.
-Escolhe um produto ou peça.
-Adiciona o item ao carrinho.
-Visualiza os produtos selecionados no carrinho.
-Finaliza a compra acessando a página de pagamento.
-Após a confirmação do pagamento, o pedido é concluído.
-## Estrutura do Projeto
+```text
 frontend/
-│
 ├── app/
-├── components/
-│   ├── Busca.tsx
-│   ├── page.tsx
-│   ├── login/
-│   ├── produtos/
-│   ├── pecas/
-│   ├── carrinho/
-│   ├── pagamento/
-│   └── layout.tsx
-│
-├── public/
-│
-│
-└── package.json
-Recursos Utilizados
-Pesquisa de Produtos
+│   ├── layout.tsx         # Layout global (Header e Footer persistentes)
+│   ├── page.tsx           # Página Inicial (Home)
+│   ├── login/             # Autenticação de Usuários
+│   │   └── page.tsx
+│   ├── cadastro/          # Registro de Novos Usuários
+│   │   └── page.tsx
+│   ├── produtos/          # Catálogo Completo de Produtos
+│   │   └── todos/
+│   │       └── page.tsx
+│   ├── pecas/             # Catálogo de Peças de Reposição
+│   │   └── page.tsx
+│   ├── carrinho/          # Gerenciamento do Carrinho
+│   │   └── page.tsx
+│   └── pagamento/         # Checkout e Gerador PIX
+│       └── page.tsx
+├── components/            # Componentes Reutilizáveis (Busca, Cards, Header, Footer)
+└── public/                # Ativos Estáticos (Imagens de Produtos)
 
-O sistema possui uma barra de pesquisa que permite localizar produtos e peças rapidamente.
-Carrinho de Compras
-O carrinho permite adicionar, remover e alterar a quantidade de produtos antes da finalização da compra.
-Armazenamento Local
-O navegador utiliza o LocalStorage para armazenar temporariamente os produtos adicionados ao carrinho, garantindo que as informações permaneçam disponíveis durante a navegação.
-Interface Responsiva
-O frontend foi desenvolvido com Tailwind CSS, permitindo que o sistema seja utilizado em computadores, tablets e smartphones, adaptando automaticamente o layout para diferentes tamanhos de tela.
 
-Benefícios do Frontend
-Interface moderna e intuitiva;
-Navegação rápida e organizada;
-Sistema responsivo para diferentes dispositivos;
-Pesquisa eficiente de produtos;
-Catálogo organizado por categorias;
-Carrinho de compras integrado;
-Processo de compra simples e prático;
-Melhor experiência para o usuário.
+
+📋 Módulos e Telas da Aplicação
+
++-----------+------------------+-----------------------------------------------+------------------------------------------------------+
+| Módulo    | Rota             | Descrição                                     | Integração Backend / Recursos                        |
++-----------+------------------+-----------------------------------------------+------------------------------------------------------+
+| Home      | /                | Banner promocional, busca rápida e destaques  | Redirecionamento dinâmico e navegação principal      |
+| Login     | /login           | Autenticação de conta cadastrada              | POST /login (Validação via bcrypt/JWT no servidor)   |
+| Cadastro  | /cadastro        | Registro de novos clientes                    | POST /usuarios (Criação de usuário no MySQL)         |
+| Produtos  | /produtos/todos  | Catálogo geral de produtos                    | GET /produtos (Filtros, ordenação e formatação BRL)  |
+| Peças     | /pecas           | Listagem por categorias de manutenção         | GET /produtos (Filtro por categoria de peças)        |
+| Carrinho  | /carrinho        | Gerenciamento de itens selecionados           | Persistência com LocalStorage e cálculo em tempo real|
+| Pagamento | /pagamento       | Processamento do checkout                     | Integração de QR Code PIX e chave copia-e-cola       |
++-----------+------------------+-----------------------------------------------+------------------------------------------------------+
+
+
+🔄 Fluxo de Navegação do Usuário
+
+[ Página Inicial / Busca ] ──> [ Catálogo (Produtos / Peças) ]
+                                            │
+                                  (Adicionar ao Carrinho)
+                                            ▼
+[ Checkout / PIX ] <── (Finalizar) ── [ Carrinho (LocalStorage) ]
+
+
+1.Navegação & Busca: O cliente pesquisa itens via barra de busca ou navega pelas categorias.
+
+2.Seleção de Produtos: Visualização clara das fotos, especificações e preços formatados em moeda brasileira (R$ 0.000,00).
+
+3.Persistência de Dados: Os itens adicionados são armazenados via LocalStorage, garantindo retenção dos dados na sessão.
+
+4.Checkout Simplificado: Controle de quantidades no carrinho e redirecionamento direto para geração de cobrança PIX.
+
+⚡ Destaques do Frontend
+Formatação Nativa de Moeda: Utilização de Intl.NumberFormat('pt-BR') para exibição de preços no padrão BRL.
+
+Fallback de Imagens: Tratamento dinâmico no evento onError das imagens para garantir a exibição de assets locais (public/images/) caso o link do banco não responda.
+
+Design Responsivo: Construído com abordagem Mobile-First utilizando grid e flexbox com Tailwind CSS.
+
+
+🚀 Como Executar o Projeto
+Pré-requisitos
+Node.js (v18+)
+
+Backend AssistenciaTecnicaForja_Backend executando em http://localhost:8080
+
+
+Passo a Passo
+1. Instalar as dependências:
+
+Bash
+npm install
+
+
+2. Iniciar o servidor de desenvolvimento:
+
+Bash
+npm run dev
+
+
+3. Acessar a aplicação:
+Abra o navegador e acesse http://localhost:3000.
